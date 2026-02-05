@@ -1,4 +1,4 @@
-# Acmatech in nextjs
+# Actamech in nextjs
 
 To start the application you'll need to:
 
