@@ -1,0 +1,24 @@
+import Header from "@/components/layout/header/Header";
+import Footer from "@/components/layout/footer/Footer";
+import "@/styles/global.css";
+import BaseInformation from "@/components/layout/baseInformation/BaseInformation";
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en">
+      <body className="flex flex-col min-h-screen">
+        <Header />
+        <BaseInformation
+          image="/images/index/indexImage.jpg"
+          showBreadcrumbs={false}
+        />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </body>
+    </html>
+  );
+}

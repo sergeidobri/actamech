@@ -1,0 +1,21 @@
+@reference "@styles/global.css";
+
+.article-navigation {
+  max-height: calc(100vh - var(--header-height));
+  top: var(--header-height);
+  @apply min-w-sm pr-4 overflow-auto sticky self-start;
+}
+
+.article-content {
+  @apply text-justify pl-8;
+
+  h2 {
+    @apply mt-4 text-xl font-semibold;
+  }
+
+  section {
+    p {
+      @apply my-2;
+    }
+  }
+}
