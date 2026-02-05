@@ -4,7 +4,7 @@ import MainLink from "@/components/ui/MainLink";
 
 export default function Footer() {
   return (
-    <footer className="py-4 bg-secondary w-full text-secondary-text min-h-96 flex flex-col justify-between border-t-accent border-t-2">
+    <footer className="mt-8 py-4 bg-secondary w-full text-secondary-text min-h-96 flex flex-col justify-between border-t-accent border-t-2">
       <div className="container flex justify-between m-auto">
         <Link href="/" className="flex items-center my-auto gap-4 h-full">
           <div className="flex items-center gap-2 flex-shrink-0">

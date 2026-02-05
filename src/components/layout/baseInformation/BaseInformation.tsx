@@ -1,31 +1,32 @@
+"use client";
+
 import Breadcrumb from "@/components/ui/Breadcrumb";
-import { BreadcrumbItem } from "@/lib/types/breadcrumbs";
+import { BreadcrumbItem, MetaConfig } from "@/lib/types/navigation";
+import {
+  getBreadcrumbsFromPath,
+  getDefaultImage,
+  getMetaConfig,
+} from "@/lib/utils/navigation";
 import Image from "next/image";
+import { usePathname, useSelectedLayoutSegment } from "next/navigation";
+import { useEffect, useState } from "react";
 
-interface BaseInformationProps {
-  image?: string | null;
-  pageTitle?: string | null;
-  showBreadcrumbs?: boolean;
-  navigation?: BreadcrumbItem[];
-}
+export default function BaseInformation() {
+  const pathname = usePathname();
+  const meta = getMetaConfig(pathname);
+  const segment = useSelectedLayoutSegment();
+  const breadcrumbs = getBreadcrumbsFromPath(pathname);
 
-export default function BaseInformation({
-  image,
-  pageTitle = null,
-  showBreadcrumbs = true,
-  navigation = [],
-}: BaseInformationProps) {
-  const defaultImage = "/images/index/indexAboutImage.png";
-  
   return (
     <div className="mb-16">
       <div className="w-full h-80 relative">
         <Image
           className="w-full brightness-50 object-cover object-[25%_0%] bg-scroll"
-          src={image ? image : defaultImage}
+          src={meta?.image ? meta.image : getDefaultImage()}
           fill
           alt={"Main page image"}
         />
+
         <div
           className="text-secondary-text absolute z-10
               
@@ -44,15 +45,15 @@ export default function BaseInformation({
           </div>
         </div>
       </div>
-      {showBreadcrumbs && (
+      {breadcrumbs && pathname !== "/" && segment !== "/_not-found" && (
         <div className="container mx-auto mt-8">
-          <Breadcrumb navigation={navigation} />
+          <Breadcrumb navigation={breadcrumbs} />
         </div>
       )}
-      {pageTitle && (
+      {meta?.title && (
         <div className="border-y-accent border-y-2 mt-8">
           <div className="container mx-auto py-8">
-            <h1 className="text-4xl uppercase">{pageTitle}</h1>
+            <h1 className="text-4xl uppercase">{meta.title}</h1>
           </div>
         </div>
       )}

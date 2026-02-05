@@ -1,0 +1,33 @@
+import { NAVIGATABLE_ROUTES } from "@/lib/constants/navigation";
+import { BreadcrumbItem, MetaConfig } from "@/lib/types/navigation";
+import { metaConfig } from "../constants/meta-config";
+
+export function getBreadcrumbsFromPath(path: string): BreadcrumbItem[] {
+  const pathSegments = path.split("/").filter(Boolean);
+
+  const breadcrumbs: BreadcrumbItem[] = [
+    { name: "Home", url: "/", isClickable: true },
+  ];
+
+  let currentPath = "";
+  for (const segment of pathSegments) {
+    currentPath += `/${segment}`;
+    breadcrumbs.push({
+      name: segment.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+      url: currentPath,
+      isClickable: NAVIGATABLE_ROUTES.includes(currentPath),
+    });
+  }
+
+  return breadcrumbs;
+}
+
+export function getMetaConfig(path: string): MetaConfig {
+  const info = metaConfig[path];
+
+  return info ? info : ({ title: null, image: null } as MetaConfig);
+}
+
+export function getDefaultImage(): string {
+  return "/images/index/indexImage.jpg";
+}

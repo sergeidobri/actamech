@@ -12,11 +12,8 @@ export default function RootLayout({
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <Header />
-        <BaseInformation
-          image="/images/index/indexImage.jpg"
-          showBreadcrumbs={false}
-        />
-        <main className="flex-grow">{children}</main>
+        <BaseInformation />
+        <main className="flex-grow container mx-auto">{children}</main>
         <Footer />
       </body>
     </html>
