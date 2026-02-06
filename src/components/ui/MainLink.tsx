@@ -1,14 +1,6 @@
+import { Link as ILink } from "@/lib/types/navigation";
 import { SquareArrowOutUpRight } from "lucide-react";
 import Link from "next/link";
-
-interface ILink {
-  text: string;
-  url: string;
-  target?: "_blank" | "_parent" | "_self" | "_top";
-  className?: string | null;
-  external?: boolean;
-  disabled?: boolean;
-}
 
 export default function MainLink({
   text,

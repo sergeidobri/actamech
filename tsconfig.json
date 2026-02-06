@@ -21,7 +21,9 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "assets/*": ["../assets/*"]
+      "assets/*": ["../assets/*"],
+      "@ethics-components/*": ["./components/pages/about/ethics-policy/*"],
+      "@aims-components/*": ["./components/pages/about/aims-and-scope/*"]
     }
   },
   "include": [

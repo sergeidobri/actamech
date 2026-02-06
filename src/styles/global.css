@@ -52,6 +52,10 @@
   --color-contrast-disabled-text: var(--color-contrast-disabled-text);
 }
 
+.text-accent {
+  color: var(--color-accent);
+}
+
 .border-0-5 {
   border-style: var(--tw-border-style);
   border-width: 0.5px;
@@ -132,7 +136,7 @@ article.text-left-border {
 }
 
 .text-left-border {
-  @apply border-l-secondary/8 border-l-1 pl-4 py-4;
+  @apply border-l-secondary/8 border-l-1 pl-4;
 }
 
 .left_navigation-sticky {

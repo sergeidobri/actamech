@@ -1,7 +1,6 @@
 "use client";
 
 import Breadcrumb from "@/components/ui/Breadcrumb";
-import { BreadcrumbItem, MetaConfig } from "@/lib/types/navigation";
 import {
   getBreadcrumbsFromPath,
   getDefaultImage,
@@ -9,7 +8,6 @@ import {
 } from "@/lib/utils/navigation";
 import Image from "next/image";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function BaseInformation() {
   const pathname = usePathname();
@@ -18,7 +16,7 @@ export default function BaseInformation() {
   const breadcrumbs = getBreadcrumbsFromPath(pathname);
 
   return (
-    <div className="mb-16">
+    <>
       <div className="w-full h-80 relative">
         <Image
           className="w-full brightness-50 object-cover object-[25%_0%] bg-scroll"
@@ -57,6 +55,6 @@ export default function BaseInformation() {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }

@@ -1,0 +1,50 @@
+import List from "@/components/ui/List";
+
+export default function AimsAndScope() {
+  return (
+    <article className="text-left-border">
+      <p>
+        The journal serves as a leading international platform for scholars and
+        engineers working at the intersection of mechanics, control theory,
+        systems engineering, and advanced digital technologies, including big
+        data analytics, artificial intelligence, and machine learning. The
+        journal covers a broad spectrum of modern scientific disciplines,
+        ranging from fundamental areas of mechanics to advanced topics in
+        automatic control theory. It publishes innovative research contributing
+        to the development of both theoretical foundations and practical
+        applications in these rapidly evolving fields. Papers presenting recent
+        advances in analytical models, computational algorithms, and
+        experimental methods, including those enhanced by Artificial
+        Intelligence and Big Data technologies, are highly encouraged.
+      </p>
+      <p>
+        The editorial board welcomes research in computational and experimental
+        mechanics, automatic control theory, and systems engineering, with a
+        focus on developing and refining methods for designing high-performance
+        control systems. Key areas of interest include, but are not limited to:
+      </p>
+      <List>
+        <li>Mathematical modeling and system identification</li>
+        <li>Robustness analysis and optimization</li>
+        <li>Control law synthesis</li>
+        <li>Numerical analysis and fault diagnosis</li>
+        <li>Mechatronic and robotic systems</li>
+        <li>Data interpretation and object identification</li>
+        <li>Multiscale modeling and simulation</li>
+        <li>Advanced experimental techniques</li>
+        <li>Fracture and damage mechanics</li>
+        <li>Fluid-structure interaction</li>
+        <li>Characterization and analysis of material properties</li>
+      </List>
+      <p>
+        The journal highly values papers demonstrating the integration of
+        multiple methodologies to address complex engineering challenges and
+        fostering interdisciplinary collaboration through advanced computational
+        technologies. Accepted publication formats include review articles,
+        original research, brief communications, technical notes on novel
+        experimental methods, coverage of scientific events, and special
+        thematic issues.
+      </p>
+    </article>
+  );
+}

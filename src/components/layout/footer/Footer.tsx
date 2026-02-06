@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import MainLink from "@/components/ui/MainLink";
+import FooterLink from "./FooterLink";
 
 export default function Footer() {
   return (
-    <footer className="mt-8 py-4 bg-secondary w-full text-secondary-text min-h-96 flex flex-col justify-between border-t-accent border-t-2">
+    <footer className="py-4 bg-secondary w-full text-secondary-text min-h-96 flex flex-col justify-between border-t-accent border-t-2">
       <div className="container flex justify-between m-auto">
         <Link href="/" className="flex items-center my-auto gap-4 h-full">
           <div className="flex items-center gap-2 flex-shrink-0">
@@ -40,19 +40,9 @@ export default function Footer() {
             <h1 className="uppercase text-lg font-bold mb-4">
               Articles & Issues
             </h1>
-            <MainLink
-              className="text-sm"
-              disabled
-              text="Latest issue"
-              url="/volumes/1"
-            />
-            <MainLink
-              className="text-sm"
-              text="All issues"
-              url="/articles/all-issues"
-            />
-            <MainLink
-              className="text-sm"
+            <FooterLink disabled text="Latest issue" url="/volumes/1" />
+            <FooterLink text="All issues" url="/articles/all-issues" />
+            <FooterLink
               disabled
               text="Articles in press"
               url="/articles/articles-in-press"
@@ -65,31 +55,14 @@ export default function Footer() {
         <section>
           <div className="flex flex-col gap-2">
             <h1 className="uppercase text-lg font-bold mb-4">About</h1>
-            <MainLink
-              className="text-sm"
-              text="Aims and scope"
-              url="/about/aims-and-scope"
-            />
-            <MainLink
-              className="text-sm"
-              text="Editorial board"
-              url="/about/editorial-board"
-            />
-            <MainLink
-              className="text-sm"
-              text="Ethics Policy"
-              url="/about/ethics-policy"
-            />
-            <MainLink
-              className="text-sm"
+            <FooterLink text="Aims and scope" url="/about/aims-and-scope" />
+            <FooterLink text="Editorial board" url="/about/editorial-board" />
+            <FooterLink text="Ethics Policy" url="/about/ethics-policy" />
+            <FooterLink
               text="Declaration on privacy"
               url="/about/declaration-on-privacy"
             />
-            <MainLink
-              className="text-sm"
-              text="Contacts"
-              url="/about/contacts"
-            />
+            <FooterLink text="Contacts" url="/about/contacts" />
           </div>
         </section>
 
@@ -98,15 +71,8 @@ export default function Footer() {
         <section>
           <div className="flex flex-col gap-2">
             <h1 className="uppercase text-lg font-bold mb-4">Publish</h1>
-            <MainLink
-              className="text-sm"
-              disabled
-              external
-              text="Submit your article "
-              url="/"
-            />
-            <MainLink
-              className="text-sm"
+            <FooterLink disabled external text="Submit your article " url="/" />
+            <FooterLink
               disabled
               text="Guide for authors"
               url="/publish/guide-for-authors"

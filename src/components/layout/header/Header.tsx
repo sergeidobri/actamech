@@ -1,8 +1,8 @@
 import Image from "next/image";
 import HeaderDropdown from "./HeaderDropdown";
-import MainLink from "@/components/ui/MainLink";
 import Link from "next/link";
 import { Search } from "lucide-react";
+import HeaderLink from "./HeaderLink";
 
 export default function Header() {
   return (
@@ -28,9 +28,9 @@ export default function Header() {
           <li>
             <HeaderDropdown text="Articles & Issues">
               <ul className="flex flex-col gap-5 text-sm">
-                <MainLink text="Latest issue" disabled url="/volumes/1" />
-                <MainLink text="All issues" url="/articles/all-issues" />
-                <MainLink
+                <HeaderLink text="Latest issue" disabled url="/volumes/1" />
+                <HeaderLink text="All issues" url="/articles/all-issues" />
+                <HeaderLink
                   disabled
                   text="Articles in press"
                   url="/articles/articles-in-press"
@@ -41,7 +41,7 @@ export default function Header() {
           <li>
             <HeaderDropdown text="Proceedings">
               <ul className="flex flex-col gap-5 text-sm">
-                <MainLink
+                <HeaderLink
                   text="Advances in Mechanics and Control"
                   url="/proceedings/amc"
                 />
@@ -51,14 +51,17 @@ export default function Header() {
           <li>
             <HeaderDropdown text="About">
               <ul className="flex flex-col gap-5 text-sm">
-                <MainLink text="Aims and scope" url="/about/aims-and-scope" />
-                <MainLink text="Editorial board" url="/about/editorial-board" />
-                <MainLink text="Ethics Policy" url="/about/ethics-policy" />
-                <MainLink
+                <HeaderLink text="Aims and scope" url="/about/aims-and-scope" />
+                <HeaderLink
+                  text="Editorial board"
+                  url="/about/editorial-board"
+                />
+                <HeaderLink text="Ethics Policy" url="/about/ethics-policy" />
+                <HeaderLink
                   text="Declaration on privacy"
                   url="/about/declaration-on-privacy"
                 />
-                <MainLink text="Contacts" url="/about/contacts" />
+                <HeaderLink text="Contacts" url="/about/contacts" />
               </ul>
             </HeaderDropdown>
           </li>
@@ -66,14 +69,14 @@ export default function Header() {
           <li>
             <HeaderDropdown text="Publish">
               <ul className="flex flex-col gap-5 text-sm">
-                <MainLink
+                <HeaderLink
                   external
                   target="_blank"
                   disabled
                   text="Submit an article"
                   url="https://confchair.org"
                 />
-                <MainLink
+                <HeaderLink
                   disabled
                   text="Guide for authors"
                   url="/publish/guide-for-authors"
@@ -85,7 +88,7 @@ export default function Header() {
 
         <div>
           <div className="flex flex-row gap-2 self-stretch items-center">
-            <MainLink
+            <HeaderLink
               disabled
               text="Submit an article"
               target="_blank"
@@ -93,7 +96,7 @@ export default function Header() {
               url="#"
             />
 
-            <MainLink disabled text="Guide for authors" url="#" />
+            <HeaderLink disabled text="Guide for authors" url="#" />
 
             <div>
               <div className="p-4 text-2xl cursor-pointer hover:text-accent">
