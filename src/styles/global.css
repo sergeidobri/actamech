@@ -124,13 +124,9 @@ html {
 
 article.text,
 article.text-left-border {
-  @apply text-justify pl-4;
+  @apply text-justify pl-4 flex flex-col gap-2;
 
   ul {
-    @apply my-2;
-  }
-
-  p {
     @apply my-2;
   }
 }

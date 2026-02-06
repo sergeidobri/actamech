@@ -23,7 +23,8 @@
       "@/*": ["./*"],
       "assets/*": ["../assets/*"],
       "@ethics-components/*": ["./components/pages/about/ethics-policy/*"],
-      "@aims-components/*": ["./components/pages/about/aims-and-scope/*"]
+      "@aims-components/*": ["./components/pages/about/aims-and-scope/*"],
+      "@index-components/*": ["./components/pages/index/*"]
     }
   },
   "include": [

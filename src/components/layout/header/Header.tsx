@@ -6,7 +6,7 @@ import HeaderLink from "./HeaderLink";
 
 export default function Header() {
   return (
-    <header className="border-accent w-full bg-secondary text-secondary-text z-20 text-sm">
+    <header className="border-accent w-full bg-secondary text-secondary-text z-20 text-sm sticky top-0">
       <div className="mx-auto container flex flex-row justify-between items-center">
         <Link
           href="/"
