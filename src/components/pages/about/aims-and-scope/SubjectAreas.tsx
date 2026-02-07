@@ -17,11 +17,13 @@ export default function SubjectAreas() {
   return (
     <>
       <SectionTitle title="Subject Areas" />
-      <section className="container mx-auto mt-8">
+      <section>
         <div className="flex flex-wrap gap-4 justify-center">
           {subjectAreas.map((area, index) => (
             <SubjectAreasCard key={index}>
-              <span className="text-center w-full font-semibold">{area}</span>
+              <span className="text-center w-full font-semibold break-all">
+                {area}
+              </span>
             </SubjectAreasCard>
           ))}
         </div>

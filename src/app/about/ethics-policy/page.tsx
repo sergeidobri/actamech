@@ -7,13 +7,13 @@ import GuidanceInitial from "@ethics-components/GuidanceInitial";
 
 export default function EthicsPolicyPage() {
   return (
-    <div className="flex flex-col flex-1 gap-8">
+    <>
       <GuidanceInitial />
       <GuidanceForAuthors />
       <GuidanceForEditorial />
       <GuidanceForEditorInChief />
       <GuidanceForPeerReviewers />
       <GuidanceInConflicts />
-    </div>
+    </>
   );
 }

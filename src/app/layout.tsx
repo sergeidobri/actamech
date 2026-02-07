@@ -15,7 +15,7 @@ export default function RootLayout({
         <Header />
         <PageFiller />
         <BaseInformation />
-        <main className="flex-grow container mx-auto mb-16 mt-8">
+        <main className="flex-grow container mx-auto mb-16 mt-8 flex flex-col gap-8">
           {children}
         </main>
         <Footer />

@@ -1,6 +1,6 @@
 export default function ContactInformation() {
   return (
-    <div className="container mx-auto mt-8">
+    <div>
       <h1 className="text-heading uppercase self-center">Publisher:</h1>
       <p className="mt-2">
         Peoples Friendship University of Russia named after Patrice Lumumba

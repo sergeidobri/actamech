@@ -13,7 +13,7 @@
   --slide-panel-width: clamp(330px, var(--slide-panel-desired-width), 560px);
 
   --marker-dash: "-";
-  --header-height: 80px;
+  --header-height: 72px;
   --base-rounded: var(--radius-xl);
   --color-primary: white;
   --color-secondary: var(--color-slate-900);
@@ -72,7 +72,7 @@ html {
 }
 
 .container {
-  @apply w-full px-4 max-w-[1300px];
+  @apply w-full px-4 sm:px-16 max-w-[1300px];
   /*    */
 }
 
@@ -124,7 +124,7 @@ html {
 
 article.text,
 article.text-left-border {
-  @apply text-justify pl-4 flex flex-col gap-2;
+  @apply text-justify lg:pl-4 flex flex-col gap-2;
 
   ul {
     @apply my-2;
@@ -132,7 +132,7 @@ article.text-left-border {
 }
 
 .text-left-border {
-  @apply border-l-secondary/8 border-l-1 pl-4;
+  @apply lg:border-l-secondary/8 lg:border-l-1 lg:pl-4;
 }
 
 .left_navigation-sticky {

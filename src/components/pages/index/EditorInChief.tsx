@@ -1,3 +1,4 @@
+import List from "@/components/ui/List";
 import SectionTitle from "@/components/ui/SectionTitle";
 
 export default function EditorInChief() {
@@ -5,20 +6,19 @@ export default function EditorInChief() {
     <>
       <SectionTitle title="Editor-in-Chief" classNameTitle="text-accent" />
 
-      <article className="text-left-border mt-8 ml-4">
+      <article className="text-left-border">
         <h2 className="text-lg text-accent font-semibold ml-0 indent-0">
           Prof. Dr. Yury N. Razoumny
         </h2>
-
-        <p className="indent-0">
-          Director of Academy of Engineering of RUDN University <br />
-          Academician of Russian Academy of Cosmonautics
-          <br />
-          Academician of International Academy of Astronautics, IAA
-          <br />
-          Lifetime Associate Fellow, American Institute of Aeronautics and
-          Astronautics, AIAA
-        </p>
+        <List>
+          <li>Director of Academy of Engineering of RUDN University</li>
+          <li>Academician of Russian Academy of Cosmonautics</li>
+          <li>Academician of International Academy of Astronautics, IAA</li>
+          <li>
+            Lifetime Associate Fellow, American Institute of Aeronautics and
+            Astronautics, AIAA
+          </li>
+        </List>
       </article>
     </>
   );

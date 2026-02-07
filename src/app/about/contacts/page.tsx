@@ -3,8 +3,8 @@ import List from "@/components/ui/List";
 
 export default function ContactsPage() {
   return (
-    <div className="grid grid-cols-3 gap-4">
-      <div className="col-span-2">
+    <div className="flex flex-col lg:flex-row gap-4">
+      <div className="flex-2">
         <section className="text-left-border">
           <p>
             If you haven't found an answer you are looking for on our website,
@@ -22,7 +22,7 @@ export default function ContactsPage() {
           </List>
         </section>
       </div>
-      <div>
+      <div className="flex-1">
         <ContactsForm />
       </div>
     </div>

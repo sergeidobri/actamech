@@ -8,7 +8,7 @@ interface BreadcrumbsProps {
 
 export default function Breadcrumb({ navigation }: BreadcrumbsProps) {
   return (
-    <div className="flex flex-row items-center gap-2 font-semibold text-xs">
+    <div className="flex flex-row flex-wrap items-center gap-2 font-semibold text-xs">
       {navigation.map((item, index) => (
         <Fragment key={index}>
           {item.url && item.isClickable ? (

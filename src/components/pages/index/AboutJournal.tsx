@@ -8,9 +8,9 @@ export default function AboutJournal() {
     <>
       <SectionTitle title="About Journal" classNameTitle="text-accent" />
 
-      <div className="text-left-border ml-4 mt-8 grid grid-flow-row-dense grid-cols-4">
+      <div className="text-left-border flex flex-col gap-y-4 lg:grid lg:grid-flow-row-dense lg:grid-cols-4">
         <div className="col-span-3">
-          <div className="flex flex-row gap-16">
+          <div className="flex flex-col justify-between gap-x-8 lg:flex-row gap-y-4">
             <p className="font-semibold text-justify">
               Acta Mechanica et Imperium is a peer review electronic journal
               published 4 times per year.
@@ -22,7 +22,7 @@ export default function AboutJournal() {
               development in this field.
             </p>
           </div>
-          <p className="mt-4 text-justify">
+          <p className="text-justify">
             In addition to regular papers and review articles, the journal
             publishes select special issues and conference proceedings on hot
             topic, covering the following subject areas (but not limited to):
@@ -37,19 +37,19 @@ export default function AboutJournal() {
             Earth and in space.
           </p>
         </div>
-        <div className="col-span-1 relative w-full h-full">
+        <div className="lg:col-span-1 relative w-full h-[300px] lg:h-full">
           <Image
             src="/images/index/indexAboutImage.png"
             alt="About"
             fill
-            className="object-contain my-auto mx-auto rotate-[150deg]"
+            className="object-contain my-auto mx-auto"
           />
         </div>
       </div>
 
       <Link
         href="/about/aims-and-scope"
-        className="ml-auto w-fit mt-8 text-secondary hover:text-accent font-bold flex flex-row items-center transition-colors
+        className="ml-auto w-fit text-secondary hover:text-accent font-bold flex flex-row items-center transition-colors
       duration-150 ease-in-out group underline-on-hover"
       >
         <span>READ MORE</span>

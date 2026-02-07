@@ -5,11 +5,11 @@ import SubjectAreas from "@aims-components/SubjectAreas";
 
 export default function AimsAndScopePage() {
   return (
-    <div className="flex flex-col gap-4">
+    <>
       <AimsAndScope />
       <SubjectAreas />
       <JournalInsights />
       <ContactInformation />
-    </div>
+    </>
   );
 }

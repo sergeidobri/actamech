@@ -31,7 +31,7 @@ export default function BaseInformation() {
               top-0 left-0 h-full w-full
               flex items-center justify-center"
         >
-          <div className="py-8 backdrop-blur-xs w-full flex items-center justify-center flex-col">
+          <div className="py-8 backdrop-blur-xs w-full flex items-center justify-center flex-col text-center">
             <h1 className="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]">
               ACTA MECHANICA ET IMPERIUM
             </h1>

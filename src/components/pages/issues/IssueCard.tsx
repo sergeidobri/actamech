@@ -9,7 +9,7 @@ interface IssueCardProps {
 export default function IssueCard({ id, issueName, info }: IssueCardProps) {
   return (
     <Link
-      className="flex flex-col gap-4 border-b-accent border-b-1 pb-4 min-w-2/3 max-w-3/4 pr-16 max-auto cursor-pointer"
+      className="flex flex-col gap-4 border-b-accent border-b-1 pb-4 w-fit pr-16 max-auto cursor-pointer"
       href={`/volumes/${id}`}
     >
       <div>

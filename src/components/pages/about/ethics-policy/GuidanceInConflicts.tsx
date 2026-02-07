@@ -5,7 +5,7 @@ export default function GuidanceInConflicts() {
   return (
     <>
       <SectionTitle title="Publication ethics guidelines in addressing conflicts of interest" />
-      <section className="container mx-auto mt-8">
+      <section>
         <article className="text-left-border">
           <p>
             To avoid conflicts of interest between authors, reviewers, members
