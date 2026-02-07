@@ -11,9 +11,20 @@ export type MetaConfig = {
 
 export interface Link {
   text: string;
-  url: string;
+  url: string | null;
   target?: "_blank" | "_parent" | "_self" | "_top";
   className?: string | null;
   external?: boolean;
   disabled?: boolean;
+}
+
+export interface GroupLink {
+  href: string | null;
+  label: string;
+  external?: boolean;
+}
+
+export interface GroupLinks {
+  groupName: string;
+  elements: GroupLink[];
 }

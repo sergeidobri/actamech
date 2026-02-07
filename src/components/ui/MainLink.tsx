@@ -9,7 +9,7 @@ export default function MainLink({
   external = false,
   disabled = false,
 }: ILink) {
-  return disabled ? (
+  return disabled || url == null ? (
     <span
       title="Will be available soon"
       className={`w-fit uppercase text-contrast-disabled-text font-semibold whitespace-nowrap mr-2 h-full flex align-center gap-0.5 ${className ? className : ""}`}

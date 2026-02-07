@@ -3,11 +3,12 @@ import HeaderDropdown from "./HeaderDropdown";
 import Link from "next/link";
 import { Search } from "lucide-react";
 import HeaderLink from "./HeaderLink";
+import Navigation from "./Navigation";
 
 export default function Header() {
   return (
     <header className="border-accent w-full bg-secondary text-secondary-text z-20 text-sm sticky top-0">
-      <div className="mx-auto container flex flex-row justify-between items-center">
+      <nav className="mx-auto container flex flex-row justify-between lg:justify-evenly items-center">
         <Link
           href="/"
           className="py-4 flex flex-row items-center h-fit my-auto gap-2"
@@ -24,7 +25,9 @@ export default function Header() {
             ACTA MECHANICA <br /> ET IMPERIUM
           </span>
         </Link>
-        <ul className="py-4 flex-row gap-8 hidden md:flex">
+
+        <Navigation />
+        {/* <ul className="py-4 flex-row gap-8 hidden md:flex">
           <li>
             <HeaderDropdown text="Articles & Issues">
               <ul className="flex flex-col gap-5 text-sm">
@@ -84,9 +87,9 @@ export default function Header() {
               </ul>
             </HeaderDropdown>
           </li>
-        </ul>
+        </ul> */}
 
-        <div>
+        {/* <div>
           <div className="flex flex-row gap-2 self-stretch items-center">
             <HeaderLink
               disabled
@@ -104,8 +107,8 @@ export default function Header() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </div> */}
+      </nav>
     </header>
   );
 }
