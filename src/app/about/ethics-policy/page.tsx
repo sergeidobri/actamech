@@ -4,6 +4,11 @@ import GuidanceForEditorInChief from "@ethics-components/GuidanceForEditorInChie
 import GuidanceForPeerReviewers from "@ethics-components/GuidanceForPeerReviewers";
 import GuidanceInConflicts from "@ethics-components/GuidanceInConflicts";
 import GuidanceInitial from "@ethics-components/GuidanceInitial";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ethics Policy",
+};
 
 export default function EthicsPolicyPage() {
   return (

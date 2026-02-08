@@ -1,6 +1,11 @@
 import BoardDistinctPersonCard from "@/components/ui/BoardDisctinctPersonCard";
 import { CO_EDITORS } from "@/lib/constants/global";
 import { groupEditorsCountries } from "@/lib/utils/editors";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Editorial Board",
+};
 
 export default function EditorialBoardPage() {
   return (

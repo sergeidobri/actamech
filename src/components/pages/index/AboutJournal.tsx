@@ -8,9 +8,9 @@ export default function AboutJournal() {
     <>
       <SectionTitle title="About Journal" classNameTitle="text-accent" />
 
-      <div className="text-left-border flex flex-col gap-y-4 lg:grid lg:grid-flow-row-dense lg:grid-cols-4">
+      <div className="text-left-border flex flex-col gap-y-8 gap-x-4 lg:grid lg:grid-flow-row-dense lg:grid-cols-4">
         <div className="col-span-3">
-          <div className="flex flex-col justify-between gap-x-8 lg:flex-row gap-y-4">
+          <div className="flex flex-col justify-between gap-x-8 lg:flex-row">
             <p className="font-semibold text-justify">
               Acta Mechanica et Imperium is a peer review electronic journal
               published 4 times per year.
@@ -22,7 +22,7 @@ export default function AboutJournal() {
               development in this field.
             </p>
           </div>
-          <p className="text-justify">
+          <p className="text-justify mt-4">
             In addition to regular papers and review articles, the journal
             publishes select special issues and conference proceedings on hot
             topic, covering the following subject areas (but not limited to):

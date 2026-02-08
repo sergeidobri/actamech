@@ -1,9 +1,14 @@
 import ContactsForm from "@/components/pages/about/contacts/ContactForm";
 import List from "@/components/ui/List";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contacts",
+};
 
 export default function ContactsPage() {
   return (
-    <div className="flex flex-col lg:flex-row gap-4">
+    <div className="flex flex-col lg:flex-row">
       <div className="flex-2">
         <section className="text-left-border">
           <p>

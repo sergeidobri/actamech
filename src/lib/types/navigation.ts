@@ -1,7 +1,7 @@
 export interface BreadcrumbItem {
   name: string;
   url: string;
-  isClickable: boolean;
+  isClickable: boolean;  // ?
 }
 
 export type MetaConfig = {

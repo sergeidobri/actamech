@@ -1,6 +1,6 @@
 import { NAVIGATABLE_ROUTES } from "@/lib/constants/navigation";
 import { BreadcrumbItem, MetaConfig } from "@/lib/types/navigation";
-import { metaConfig } from "../constants/meta-config";
+import { metaConfig } from "@/lib/constants/meta-config";
 
 export function getBreadcrumbsFromPath(path: string): BreadcrumbItem[] {
   const pathSegments = path.split("/").filter(Boolean);

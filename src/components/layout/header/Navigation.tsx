@@ -94,17 +94,36 @@ export default function Navigation() {
           aria-controls="mobile-menu"
           aria-label={isMobileMenuOpen ? "Закрыть меню" : "Открыть меню"}
         >
-          {isMobileMenuOpen ? <X /> : <Menu />}
+          <Menu />
         </button>
       </div>
 
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ease-in-out"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       <div
         id="mobile-menu"
-        className={`${
-          isMobileMenuOpen && isMobile ? "block" : "hidden"
-        } lg:hidden px-2 mt-2 mr-2 rounded pt-2 pb-3 space-y-1 sm:px-3 absolute right-0 top-full w-[300px] max-w-[90vw] bg-secondary`}
+        className={`
+          fixed top-0 right-0 h-full w-[300px] max-w-[90vw] z-50 p-5
+          bg-secondary shadow-2xl
+          transition-transform duration-300 ease-in-out
+          transform ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"}
+          flex flex-col
+        `}
       >
-        <ul className="flex flex-col gap-4">
+        <div className="flex justify-end">
+          <button
+            className="cursor-pointer hover:text-accent"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            <X />
+          </button>
+        </div>
+        <ul className="flex flex-col gap-4 no-scrollbar">
           {menuItems.map((group) => (
             <Fragment key={group.groupName}>
               <div className="text-secondary-hover">

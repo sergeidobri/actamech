@@ -1,4 +1,9 @@
 import IssueCard from "@/components/pages/issues/IssueCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Issues",
+};
 
 export default function AllIssuesPage() {
   return (
