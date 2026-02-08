@@ -1,4 +1,4 @@
-import { CountryGroup, Editor } from "../types/editors";
+import { CountryGroup, Editor } from "@/lib/types/editors";
 
 export function groupEditorsCountries(
   editors: Editor[],

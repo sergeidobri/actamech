@@ -1,4 +1,4 @@
-import { GroupLinks } from "../types/navigation";
+import { GroupLinks } from "@/lib/types/navigation";
 
 export const NAVIGATABLE_ROUTES = [
   "/",

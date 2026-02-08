@@ -52,6 +52,11 @@
   --color-contrast-disabled-text: var(--color-contrast-disabled-text);
 }
 
+.left_navigation-sticky {
+  max-height: calc(100vh - var(--header-height));
+  @apply overflow-auto lg:sticky self-start lg:top-(--header-height);
+}
+
 .text-accent {
   color: var(--color-accent);
 }
@@ -144,12 +149,6 @@ article.text-left-border {
 
 .text-left-border {
   @apply lg:border-l-secondary/8 lg:border-l-1 lg:pl-4;
-}
-
-.left_navigation-sticky {
-  max-height: calc(100vh - var(--header-height));
-  top: var(--header-height);
-  @apply overflow-auto sticky self-start;
 }
 
 .hover-accent:hover {

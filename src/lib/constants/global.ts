@@ -1,4 +1,4 @@
-import { Editor } from "../types/editors";
+import { Editor } from "@/lib/types/editors";
 
 export const ISSN = "1234-5678";
 

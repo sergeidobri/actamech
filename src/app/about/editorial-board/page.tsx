@@ -11,8 +11,8 @@ export default function EditorialBoardPage() {
   return (
     <div className="flex flex-col lg:flex-row gap-y-8">
       <div className="flex flex-col gap-8 w-fit lg:pr-16">
-        <div className="flex flex-col gap-4">
-          <h2 className="font-semibold lg:pb-2 border-b-1 border-b-accent lg:left_navigation-sticky">
+        <div className="flex flex-col gap-4 left_navigation-sticky">
+          <h2 className="font-semibold lg:pb-2 border-b-1 border-b-accent">
             Editorial board by country/region:
           </h2>
           <ul className="flex flex-col gap-2">
