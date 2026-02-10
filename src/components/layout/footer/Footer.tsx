@@ -2,6 +2,8 @@ import Image from "next/image";
 import FooterLink from "./FooterLink";
 import Logo from "@/components/ui/Logo";
 import FooterDelimeter from "./FooterDelimeter";
+import { NAVBAR_GROUPS as menuItems } from "@/lib/constants/navigation";
+import { Fragment } from "react/jsx-runtime";
 
 export default function Footer() {
   return (
@@ -25,55 +27,31 @@ export default function Footer() {
         <FooterDelimeter />
 
         <div className="flex justify-between w-full flex-wrap gap-y-8">
-          <section>
-            <div className="flex flex-col gap-2">
-              <h1 className="uppercase text-lg font-bold mb-4">
-                Articles & Issues
-              </h1>
-              <FooterLink disabled text="Latest issue" url="/volumes/1" />
-              <FooterLink text="All issues" url="/articles/all-issues" />
-              <FooterLink
-                disabled
-                text="Articles in press"
-                url="/articles/articles-in-press"
-              />
-            </div>
-          </section>
+          {menuItems.map(
+            (group, groupIndex) =>
+              group.groupName.toLowerCase() !== "proceedings" && (
+                <Fragment key={group.groupName}>
+                  {groupIndex !== 0 && <FooterDelimeter />}
 
-          <FooterDelimeter />
-
-          <section>
-            <div className="flex flex-col gap-2">
-              <h1 className="uppercase text-lg font-bold mb-4">About</h1>
-              <FooterLink text="Aims and scope" url="/about/aims-and-scope" />
-              <FooterLink text="Editorial board" url="/about/editorial-board" />
-              <FooterLink text="Ethics Policy" url="/about/ethics-policy" />
-              <FooterLink
-                text="Declaration on privacy"
-                url="/about/declaration-on-privacy"
-              />
-              <FooterLink text="Contacts" url="/about/contacts" />
-            </div>
-          </section>
-
-          <FooterDelimeter />
-
-          <section className="w-full md:w-auto">
-            <div className="flex flex-col gap-2">
-              <h1 className="uppercase text-lg font-bold mb-4">Publish</h1>
-              <FooterLink
-                disabled
-                external
-                text="Submit your article "
-                url="/"
-              />
-              <FooterLink
-                disabled
-                text="Guide for authors"
-                url="/publish/guide-for-authors"
-              />
-            </div>
-          </section>
+                  <section>
+                    <div className="flex flex-col gap-2">
+                      <h1 className="uppercase text-lg font-bold mb-4">
+                        {group.groupName}
+                      </h1>
+                      {group.elements.map((element) => (
+                        <FooterLink
+                          text={element.label}
+                          disabled={element.href == null}
+                          url={element.href}
+                          key={element.label}
+                          external={element.external}
+                        />
+                      ))}
+                    </div>
+                  </section>
+                </Fragment>
+              ),
+          )}
         </div>
       </div>
       <div className="text-contrast-disabled-text text-sm flex flex-row justify-between items-end border-t-1 px-4 pt-2 border-t-primary">

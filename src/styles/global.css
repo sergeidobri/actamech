@@ -57,6 +57,10 @@
   @apply overflow-auto lg:sticky self-start lg:top-(--header-height);
 }
 
+.header-dropdown-wrapper:active .header-dropdown-items-container {
+  display: block;
+}
+
 .text-accent {
   color: var(--color-accent);
 }
