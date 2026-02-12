@@ -1,8 +1,9 @@
 import IssueCard from "@/components/pages/issues/IssueCard";
+import { metaConfig } from "@/lib/constants/meta-config";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "All Issues",
+  title: metaConfig["/articles/all-issues"]?.title || "All Issues",
 };
 
 export default function AllIssuesPage() {

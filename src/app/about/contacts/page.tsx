@@ -1,9 +1,10 @@
 import ContactsForm from "@/components/pages/about/contacts/ContactForm";
 import List from "@/components/ui/List";
+import { metaConfig } from "@/lib/constants/meta-config";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contacts",
+  title: metaConfig["/about/contacts"]?.title || "Contacts",
 };
 
 export default function ContactsPage() {

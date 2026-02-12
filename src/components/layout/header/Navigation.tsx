@@ -9,21 +9,7 @@ import { Menu, Search, X } from "lucide-react";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const pathname = usePathname();
-
-  useEffect(() => {
-    const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 1024);
-    };
-
-    checkIfMobile();
-    window.addEventListener("resize", checkIfMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkIfMobile);
-    };
-  }, []);
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -70,16 +56,22 @@ export default function Navigation() {
       </ul>
 
       <div>
-        <div className="hidden xl:flex gap-2 flex-row items-center">
+        <div className="hidden xl:flex flex-row items-center">
           <HeaderLink
             disabled
             text="Submit an article"
             target="_blank"
             external={true}
             url="#"
+            className="w-fit px-4 border-x-1 border-accent mr-0!"
           />
 
-          <HeaderLink disabled text="Guide for authors" url="#" />
+          <HeaderLink
+            disabled
+            text="Guide for authors"
+            url="#"
+            className="w-fit px-4 border-r-1 border-accent h-full mr-0!"
+          />
         </div>
       </div>
 
@@ -126,7 +118,7 @@ export default function Navigation() {
         <ul className="flex flex-col gap-4 no-scrollbar">
           {menuItems.map((group) => (
             <Fragment key={group.groupName}>
-              <div className="text-secondary-hover">
+              <div className="text-gray-400">
                 <h3>{group.groupName}</h3>
                 <hr />
               </div>

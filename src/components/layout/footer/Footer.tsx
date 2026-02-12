@@ -4,6 +4,7 @@ import Logo from "@/components/ui/Logo";
 import FooterDelimeter from "./FooterDelimeter";
 import { NAVBAR_GROUPS as menuItems } from "@/lib/constants/navigation";
 import { Fragment } from "react/jsx-runtime";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -54,24 +55,24 @@ export default function Footer() {
           )}
         </div>
       </div>
-      <div className="text-contrast-disabled-text text-sm flex flex-row justify-between items-end border-t-1 px-4 pt-2 border-t-primary">
+      <div className="text-contrast-disabled-text text-sm flex flex-col sm:flex-row justify-between sm:items-end items-start border-t-1 px-4 pt-2 border-t-primary">
         <section>
           <p>Copyright © 2026. All rights reserved.</p>
         </section>
         <section>
-          <a
-            className="hover:text-gray-100 base-colors-transition underline"
+          <Link
+            className="hover:text-gray-100 base-colors-transition"
             href="/about/contacts"
           >
             Contact
-          </a>{" "}
+          </Link>{" "}
           |
-          <a
-            className="hover:text-gray-100 base-colors-transition underline"
+          <Link
+            className="hover:text-gray-100 base-colors-transition"
             href="/about/declaration-on-privacy"
           >
             Terms & Privacy Policy
-          </a>
+          </Link>
         </section>
       </div>
     </footer>

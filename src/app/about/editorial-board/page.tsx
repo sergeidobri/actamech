@@ -1,10 +1,11 @@
 import BoardDistinctPersonCard from "@/components/ui/BoardDisctinctPersonCard";
 import { CO_EDITORS } from "@/lib/constants/global";
+import { metaConfig } from "@/lib/constants/meta-config";
 import { groupEditorsCountries } from "@/lib/utils/editors";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Editorial Board",
+  title: metaConfig["/about/editorial-board"]?.title || "Editorial Board",
 };
 
 export default function EditorialBoardPage() {
@@ -12,7 +13,7 @@ export default function EditorialBoardPage() {
     <div className="flex flex-col lg:flex-row gap-y-8">
       <div className="flex flex-col gap-8 w-fit lg:pr-16">
         <div className="flex flex-col gap-4 left_navigation-sticky">
-          <h2 className="font-semibold lg:pb-2 border-b-1 border-b-accent">
+          <h2 className="font-semibold lg:py-2 border-b-1 border-b-accent">
             Editorial board by country/region:
           </h2>
           <ul className="flex flex-col gap-2">

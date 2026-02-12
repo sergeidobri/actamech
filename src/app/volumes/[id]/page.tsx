@@ -1,8 +1,21 @@
 import { ChevronsLeft, ChevronsRight } from "lucide-react";
-import Link from "next/link";
 import ArticleCard from "@/components/pages/issues/ArticleCard";
 import { article } from "@/lib/utils/articles";
 import VolumeLink from "@/components/pages/issues/VolumeLink";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}): Promise<Metadata> {
+  console.log(params);
+  const { id } = await params;
+
+  return {
+    title: `Volume ${id}`,
+  };
+}
 
 export default async function VolumePage({
   params,

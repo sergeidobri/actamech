@@ -1,3 +1,4 @@
+import { metaConfig } from "@/lib/constants/meta-config";
 import GuidanceForAuthors from "@ethics-components/GuidanceForAuthors";
 import GuidanceForEditorial from "@ethics-components/GuidanceForEditorial";
 import GuidanceForEditorInChief from "@ethics-components/GuidanceForEditorInChief";
@@ -7,7 +8,7 @@ import GuidanceInitial from "@ethics-components/GuidanceInitial";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Ethics Policy",
+  title: metaConfig["/about/ethics-policy"]?.title || "Ethics Policy",
 };
 
 export default function EthicsPolicyPage() {

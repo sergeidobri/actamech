@@ -6,14 +6,16 @@ export function getBreadcrumbsFromPath(path: string): BreadcrumbItem[] {
   const pathSegments = path.split("/").filter(Boolean);
 
   const breadcrumbs: BreadcrumbItem[] = [
-    { name: "Home", url: "/", isClickable: true },
+    { name: metaConfig["/"].title || "Home", url: "/", isClickable: true },
   ];
 
   let currentPath = "";
   for (const segment of pathSegments) {
     currentPath += `/${segment}`;
     breadcrumbs.push({
-      name: segment.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+      name:
+        metaConfig[currentPath]?.title ||
+        segment.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
       url: currentPath,
       isClickable: NAVIGATABLE_ROUTES.includes(currentPath),
     });
