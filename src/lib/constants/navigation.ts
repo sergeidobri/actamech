@@ -8,6 +8,7 @@ export const NAVIGATABLE_ROUTES = [
   "/about/declaration-on-privacy",
   "/about/contacts",
   "/articles/all-issues",
+  "/proceedings/amc",
 ];
 
 export const NAVBAR_GROUPS: GroupLinks[] = [
@@ -21,7 +22,9 @@ export const NAVBAR_GROUPS: GroupLinks[] = [
   },
   {
     groupName: "Proceedings",
-    elements: [{ href: null, label: "Advances in Mechanics and Control" }],
+    elements: [
+      { href: "/proceedings/amc", label: "Advances in Mechanics and Control" },
+    ],
   },
   {
     groupName: "About",

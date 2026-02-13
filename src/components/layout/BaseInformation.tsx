@@ -1,6 +1,6 @@
 "use client";
 
-import Breadcrumb from "@/components/ui/Breadcrumb";
+import Breadcrumb from "@/components/common/Breadcrumb";
 import {
   getBreadcrumbsFromPath,
   getDefaultImage,
@@ -48,7 +48,7 @@ export default function BaseInformation() {
           <Breadcrumb navigation={breadcrumbs} />
         </div>
       )}
-      {meta?.title && (
+      {meta?.title && !pathname.startsWith("/proceedings/") && (
         <div className="border-y-accent border-y-2 mt-8">
           <div className="container mx-auto py-8">
             <h1 className="text-4xl uppercase">{meta.title}</h1>

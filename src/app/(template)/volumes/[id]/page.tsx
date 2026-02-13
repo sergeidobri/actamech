@@ -25,8 +25,8 @@ export default async function VolumePage({
   const { id } = await params;
   return (
     <div className="flex flex-col lg:flex-row gap-8">
-      <div className="flex flex-col gap-4 left_navigation-sticky">
-        <div className="flex flex-col gap-6 pb-8 border-b-1 border-b-border-primary">
+      <div className="flex flex-col gap-4 -mt-8 left_navigation-sticky">
+        <div className="flex flex-col gap-6 py-8 border-b-1 border-b-border-primary">
           <h1 className="text-2xl">Volume {id}</h1>
           <h2 className="pb-2 border-b-2 border-b-accent text-xl">
             Pages 1-1122 (March 2025)

@@ -1,9 +1,9 @@
 import MainContainer from "@/components/layout/MainContainer";
 
-export default function NotFoundPage() {
+export default function ProceedingsPage() {
   return (
     <MainContainer>
-      <div>Error 404. Page was not found</div>
+      <div>Главная страница Proceedings</div>
     </MainContainer>
   );
 }

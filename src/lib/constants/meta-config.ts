@@ -30,4 +30,9 @@ export const metaConfig: Record<string, MetaConfig> = {
     image:
       "/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg",
   },
+  "/proceedings/amc": {
+    title: "Advances in Mechanics and Control",
+    image:
+      "/images/mainImages/futuristic_spaceship_orbits_planet_powered_by_solar_panels_fuel.jpg",
+  },
 };

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function ContactsPage() {
   return (
-    <div className="flex flex-col lg:flex-row">
+    <div className="flex flex-col lg:flex-row gap-y-8">
       <div className="flex-2">
         <section className="text-left-border">
           <p>

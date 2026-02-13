@@ -24,13 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        <ScrollToTop /> {/* TODO: разобраться со скроллами */}
+        <ScrollToTop />
         <Header />
         <PageFiller />
         <BaseInformation />
-        <main className="flex-grow container mx-auto mb-16 mt-8 flex flex-col gap-8">
-          {children}
-        </main>
+        {children}
         <Footer />
       </body>
     </html>

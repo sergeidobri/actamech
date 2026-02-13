@@ -1,4 +1,4 @@
-import BoardDistinctPersonCard from "@/components/ui/BoardDisctinctPersonCard";
+import BoardDistinctPersonCard from "@/components/pages/about/editorial-board/BoardDisctinctPersonCard";
 import { CO_EDITORS } from "@/lib/constants/global";
 import { metaConfig } from "@/lib/constants/meta-config";
 import { groupEditorsCountries } from "@/lib/utils/editors";

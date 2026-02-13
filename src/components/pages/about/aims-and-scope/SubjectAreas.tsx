@@ -1,5 +1,5 @@
 import SectionTitle from "@/components/ui/SectionTitle";
-import SubjectAreasCard from "@/components/ui/SubjectAreasCard";
+import SubjectAreasCard from "./SubjectAreasCard";
 
 const subjectAreas = [
   "Space Flight Mechanics",
