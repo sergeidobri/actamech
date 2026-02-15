@@ -1,15 +1,6 @@
 import { GroupLinks } from "@/lib/types/navigation";
 
-export const NAVIGATABLE_ROUTES = [
-  "/",
-  "/about/aims-and-scope",
-  "/about/editorial-board",
-  "/about/ethics-policy",
-  "/about/declaration-on-privacy",
-  "/about/contacts",
-  "/articles/all-issues",
-  "/proceedings/amc",
-];
+export const NOT_NAVIGATABLE_ROUTES = ["/about", "/articles", "/proceedings"];
 
 export const NAVBAR_GROUPS: GroupLinks[] = [
   {

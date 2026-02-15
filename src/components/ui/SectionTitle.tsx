@@ -14,7 +14,9 @@ export default function SectionTitle({
       className={`${alt ? "border-b-secondary" : "border-b-accent"} border-b-2`}
     >
       <div className="pt-4 pb-4">
-        <h1 className={`text-3xl uppercase ${classNameTitle}`}>{title}</h1>
+        <h1 className={`sm:text-3xl text-2xl uppercase ${classNameTitle}`}>
+          {title}
+        </h1>
       </div>
     </div>
   );

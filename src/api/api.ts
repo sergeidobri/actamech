@@ -1,4 +1,3 @@
-import { apiInstance } from "./axiosInstance";
 import {
   BaseAPIResponse,
   ProceedingResponse,
@@ -9,8 +8,16 @@ import {
 export const baseGetFetch = async <T>(
   url: string,
 ): Promise<BaseAPIResponse<T>> => {
-  const { data }: { data: BaseAPIResponse<T> } = await apiInstance.get(url);
-  return data;
+  const response = await fetch(`${process.env.API_BASE_URL}${url}`, {
+    method: "GET",
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error. status: ${response.status}`);
+  }
+
+  const result: BaseAPIResponse<T> = await response.json();
+  return result;
 };
 
 export const getArticleById = async (id: string) => {

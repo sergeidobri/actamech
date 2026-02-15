@@ -1,3 +1,4 @@
+import MainContainer from "@/components/layout/MainContainer";
 import { metaConfig } from "@/lib/constants/meta-config";
 import GuidanceForAuthors from "@ethics-components/GuidanceForAuthors";
 import GuidanceForEditorial from "@ethics-components/GuidanceForEditorial";
@@ -13,13 +14,13 @@ export const metadata: Metadata = {
 
 export default function EthicsPolicyPage() {
   return (
-    <>
+    <MainContainer>
       <GuidanceInitial />
       <GuidanceForAuthors />
       <GuidanceForEditorial />
       <GuidanceForEditorInChief />
       <GuidanceForPeerReviewers />
       <GuidanceInConflicts />
-    </>
+    </MainContainer>
   );
 }

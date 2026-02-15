@@ -1,6 +1,6 @@
 import { ElementType } from "react";
 
-const regex = /(?<number>\d+)th\s+(?<rest>.+)/;
+const regex = /(?<number>\d+)(?<wordend>\w+)\s+(?<rest>.+)/;
 
 interface SerialFormattingProps {
   str: string;
@@ -21,7 +21,7 @@ export default function SerialFormatting({
   return (
     <Wrapper {...wrapperProps}>
       {match.groups.number}
-      <sup>th</sup> {match.groups.rest}
+      <sup>{match.groups.wordend}</sup> {match.groups.rest}
     </Wrapper>
   );
 }

@@ -15,12 +15,22 @@ export default function BaseInformation() {
   const segment = useSelectedLayoutSegment();
   const breadcrumbs = getBreadcrumbsFromPath(pathname);
 
+  let bgImage = meta?.image;
+  if (!bgImage) {
+    if (pathname.startsWith("/proceedings")) {
+      bgImage = getMetaConfig("/proceedings").image;
+    }
+    if (!bgImage) {
+      bgImage = getDefaultImage();
+    }
+  }
+
   return (
     <>
       <div className="w-full h-80 relative">
         <Image
           className="w-full brightness-50 object-cover object-[25%_0%] bg-scroll"
-          src={meta?.image ? meta.image : getDefaultImage()}
+          src={bgImage}
           fill
           alt={"Main page image"}
         />
@@ -51,7 +61,7 @@ export default function BaseInformation() {
       {meta?.title && !pathname.startsWith("/proceedings/") && (
         <div className="border-y-accent border-y-2 mt-8">
           <div className="container mx-auto py-8">
-            <h1 className="text-4xl uppercase">{meta.title}</h1>
+            <h1 className="sm:text-4xl text-3xl uppercase">{meta.title}</h1>
           </div>
         </div>
       )}

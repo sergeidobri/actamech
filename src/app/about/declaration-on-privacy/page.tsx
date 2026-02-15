@@ -1,3 +1,4 @@
+import MainContainer from "@/components/layout/MainContainer";
 import DeclaraionInitial from "@/components/pages/about/declaration-on-privacy/DeclarationInitial";
 import DeclarationPlagiarism from "@/components/pages/about/declaration-on-privacy/DeclarationPlagiarism";
 import RetractionRules from "@/components/pages/about/declaration-on-privacy/RetractionRules";
@@ -12,10 +13,10 @@ export const metadata: Metadata = {
 
 export default function DeclarationOnPrivacyPage() {
   return (
-    <>
+    <MainContainer>
       <DeclaraionInitial />
       <DeclarationPlagiarism />
       <RetractionRules />
-    </>
+    </MainContainer>
   );
 }
