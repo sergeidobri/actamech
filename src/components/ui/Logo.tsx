@@ -2,19 +2,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 interface LogoProps {
+  dark?: boolean;
   className?: string;
 }
 
-export default function Logo({ className = "" }: LogoProps) {
+export default function Logo({ className = "", dark = false }: LogoProps) {
   return (
     <Link
       href="/"
-      className="py-4 flex flex-row items-center h-fit my-auto gap-2"
+      className={`py-4 flex flex-row items-center h-fit my-auto gap-2 ${className}`}
     >
       <Image
         priority
         className={`w-auto h-10 ${className}`}
-        src="/icons/siteIconLight.png"
+        src={dark ? "/icons/siteIconDark.png" : "/icons/siteIconLight.png"}
         alt="Site icon"
         height={100}
         width={100}

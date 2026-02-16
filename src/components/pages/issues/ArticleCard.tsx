@@ -69,6 +69,13 @@ export default function ArticleCard({
           </div>
           <article className="max-h-[30vh] overflow-auto text-justify px-2">
             {abstract}
+            {abstract}
+            {abstract}
+            {abstract}
+            {abstract}
+            {abstract}
+            {abstract}
+            {abstract}
           </article>
         </div>
       )}

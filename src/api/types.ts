@@ -1,14 +1,14 @@
 import {
-  ArticleContentType,
   ArticleVolume,
   AuthorInArticle,
+  IArticle,
   TArticleType,
 } from "@/lib/types/articles";
 import { VolumeEditor } from "@/lib/types/editors";
 
 export interface BaseAPIResponse<T> {
   message: string;
-  data: T;
+  data: T | null;
 }
 
 export interface SingleArticleResponse {
@@ -24,7 +24,7 @@ export interface SingleArticleResponse {
   revised_at?: string | null;
   accepted_at?: string | null;
   published_at?: string | null;
-  body?: ArticleContentType | null;
+  body?: IArticle[] | null;
   volume: ArticleVolume;
   authors: AuthorInArticle[];
 }

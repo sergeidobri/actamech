@@ -1,4 +1,9 @@
-import { IArticle, TArticleType } from "@/lib/types/articles";
+import {
+  AffiliationInAuthor,
+  AuthorInArticle,
+  IArticle,
+  TArticleType,
+} from "@/lib/types/articles";
 
 export const resolveArticleType = (type: TArticleType) => {
   switch (type) {
@@ -19,6 +24,37 @@ export function formatDate(isoString: string) {
     day: "numeric",
   });
 }
+
+export const makeAffiliationsTagsFromAuthors = (
+  authors: AuthorInArticle[],
+): [Record<string, string>, Record<string, AffiliationInAuthor>] => {
+  let affiliationAliases: Record<string, string> = {};
+  let currentLetter = 97;
+  let affiliationsData: Record<string, AffiliationInAuthor> = {};
+  authors.forEach(({ affiliations }) => {
+    affiliations.forEach((af) => {
+      if (!affiliationAliases[af.id]) {
+        affiliationAliases[af.id] = String.fromCharCode(currentLetter);
+      }
+      affiliationsData[af.id] = af;
+      currentLetter += 1;
+    });
+  });
+  return [affiliationAliases, affiliationsData];
+};
+
+// export const scrollToId = (id: string) => {
+//   const element = document.getElementById(id);
+//   if (!element) return;
+//   const headerOffset = 100;
+//   const elementPosition = element.getBoundingClientRect().top;
+//   const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+//   window.scrollTo({
+//     top: offsetPosition,
+//     behavior: "smooth",
+//   });
+// };
 
 // TEMP:
 

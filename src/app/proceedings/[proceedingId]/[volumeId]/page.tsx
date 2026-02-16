@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { ProceedingVolumeLayout } from "./layout";
 import { ProceedingLayout } from "../layout";
 import { getMetaConfig } from "@/lib/utils/navigation";
+import ArticleCard from "@/components/pages/issues/ArticleCard";
 
 export async function generateMetadata({
   params,
@@ -32,6 +33,10 @@ export default async function ProceedingVolumePage({
 
   const { data: proceedingData } = await getProceedingById(proceedingId);
 
+  if (!proceedingData) {
+    notFound();
+  }
+
   const proceedingVolume = proceedingData.volumes.find(
     (vol) => vol.volume_number == volumeId,
   );
@@ -43,6 +48,10 @@ export default async function ProceedingVolumePage({
   const { data: volumeData } = await getProceedingVolumeById(
     proceedingVolume.id,
   );
+
+  if (!volumeData) {
+    notFound();
+  }
 
   return (
     <ProceedingLayout title={proceedingData.title}>
@@ -58,7 +67,7 @@ export default async function ProceedingVolumePage({
                 alt={volumeData.title}
                 height={500}
                 width={240}
-                className="rounded-2xl w-60 h-auto"
+                className="rounded-2xl w-2/3 sm:min-w-60 h-auto"
               />
             </div>
 
@@ -81,7 +90,9 @@ export default async function ProceedingVolumePage({
                     <h2 className="font-bold text-base">Volume Editors:</h2>
                     <div className="text-base">
                       {volumeData.editors.map((ed) => (
-                        <p>{ed.full_name}</p>
+                        <p key={ed.full_name}>
+                          {ed.full_name}, {ed.institution}, {ed.country}
+                        </p>
                       ))}
                     </div>
                   </div>
@@ -97,25 +108,27 @@ export default async function ProceedingVolumePage({
               <div>
                 <SectionTitle title="Articles" />
                 <div className="flex flex-col gap-8 mt-4">
-                  {/* {volumeData.articles.length ? (
-              volumeData.articles
-                .filter((article) => article.doi)
-                .map((article) => (
-                  <ArticleCard
-                    {...{
-                      ...article,
-                      link: `${volumeData.volume_number}/${article.id}`,
-                    }}
-                  />
-                ))
-            ) : (
-              <p className="font-semibold">
-                Articles will appear here when they are published
-              </p>
-            )} */}
-                  <p className="font-semibold">
-                    Articles will appear here when they are published
-                  </p>
+                  {volumeData.articles.length ? (
+                    volumeData.articles
+                      .filter((article) => article.doi)
+                      .map((article) => (
+                        <ArticleCard
+                          key={article.title}
+                          {...{
+                            ...article,
+                            authors: article.authors.map((author, i) => ({
+                              id: `author-${i}`,
+                              fullName: `${author.first_name} ${author.last_name}`,
+                            })),
+                            link: `${volumeData.volume_number}/${article.id}`,
+                          }}
+                        />
+                      ))
+                  ) : (
+                    <p className="font-semibold">
+                      Articles will appear here when they are published
+                    </p>
+                  )}
                 </div>
               </div>
             </div>

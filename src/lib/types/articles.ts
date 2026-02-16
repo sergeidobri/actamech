@@ -8,7 +8,6 @@ export interface IArticle {
   authors: IArticleAuthor[];
   highlights?: string[];
   doi: string;
-
   tables?: ITable[];
   content: TArticleContent[];
 }

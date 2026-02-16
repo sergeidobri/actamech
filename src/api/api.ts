@@ -12,6 +12,10 @@ export const baseGetFetch = async <T>(
     method: "GET",
   });
 
+  if (response.status == 404) {
+    return { message: "error", data: null };
+  }
+
   if (!response.ok) {
     throw new Error(`HTTP error. status: ${response.status}`);
   }
