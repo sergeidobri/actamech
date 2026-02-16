@@ -1,6 +1,5 @@
 import { getArticleById, getProceedingById } from "@/api/api";
 import ArticleContent from "@/components/articles/ArticleContent";
-import ArticleNav from "@/components/articles/ArticleNav";
 import Authors from "@/components/authors/Authors";
 import MainContainer from "@/components/layout/MainContainer";
 import Logo from "@/components/ui/Logo";
@@ -24,8 +23,6 @@ export default async function VolumeArticlePage({
   if (!articleData || !proceedingData) {
     notFound();
   }
-
-  console.log(articleData);
 
   return (
     <MainContainer>

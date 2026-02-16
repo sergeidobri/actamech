@@ -6,6 +6,7 @@ import { NAVBAR_GROUPS as menuItems } from "@/lib/constants/navigation";
 import HeaderDropdown from "./HeaderDropdown";
 import HeaderLink from "./HeaderLink";
 import { Menu, Search, X } from "lucide-react";
+import { useOutsideClick } from "@/lib/hooks/useOutsideClick";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,23 +16,11 @@ export default function Navigation() {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
+  const handleClose = () => {
+    setIsMobileMenuOpen(false);
+  };
 
-      if (isMobileMenuOpen && !target.closest("#mobile-menu")) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    if (isMobileMenuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isMobileMenuOpen]);
+  const ref = useOutsideClick(handleClose);
 
   return (
     <>
@@ -91,14 +80,12 @@ export default function Navigation() {
       </div>
 
       {isMobileMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ease-in-out"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
+        <div className="fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ease-in-out" />
       )}
 
       <div
         id="mobile-menu"
+        ref={ref}
         className={`
           fixed top-0 right-0 h-full w-[300px] max-w-[90vw] z-50 p-5
           bg-secondary shadow-2xl

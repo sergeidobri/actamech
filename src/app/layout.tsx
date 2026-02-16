@@ -5,6 +5,7 @@ import BaseInformation from "@/components/layout/BaseInformation";
 import PageFiller from "@/components/layout/PageFiller";
 import { Metadata } from "next";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import { MathJaxProvider } from "@/components/mathjax/MathJaxProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +29,7 @@ export default function RootLayout({
         <Header />
         <PageFiller />
         <BaseInformation />
-        {children}
+        <MathJaxProvider>{children}</MathJaxProvider>
         <Footer />
       </body>
     </html>

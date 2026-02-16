@@ -28,7 +28,6 @@ export default function Authors({
   const [affiliationAliases, affiliationsData] =
     makeAffiliationsTagsFromAuthors(authors);
 
-  console.log(authors);
   return (
     <>
       <p className="text-xl text-accent font-semibold mt-4 w-fit mx-auto cursor-pointer select-text">
@@ -49,14 +48,13 @@ export default function Authors({
           </Fragment>
         ))}
       </p>
-      {open && currentAuthor && (
-        <AuthorSlidePanel
-          author={currentAuthor}
-          onCloseCallback={() => {
-            setOpen(false);
-          }}
-        />
-      )}
+      <AuthorSlidePanel
+        author={currentAuthor}
+        opened={open}
+        onCloseCallback={() => {
+          setOpen(false);
+        }}
+      />
       <AuthorsAffiliations volume={volume} authors={authors} />
     </>
   );

@@ -34,7 +34,7 @@ export default function Footer() {
                 <Fragment key={group.groupName}>
                   {groupIndex !== 0 && <FooterDelimeter />}
 
-                  <section>
+                  <section className="px-2">
                     <div className="flex flex-col gap-2">
                       <h1 className="uppercase text-lg font-bold mb-4">
                         {group.groupName}

@@ -16,22 +16,24 @@ export default function AuthorsAffiliations({
   const [open, setOpen] = useState(false);
   const [affiliationAliases, affiliationsData] =
     makeAffiliationsTagsFromAuthors(authors);
+
   return (
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="text-primary-text/40 mt-2 cursor-pointer"
+        className="text-primary-text/40 my-2 cursor-pointer flex items-center mx-auto"
       >
         {open ? "Show less" : "Show more"}
         <ChevronDown
-          className={` ${open && "rotate-180"} transition-transform inline`}
+          size={20}
+          className={`${open && "rotate-180"} transition-transform inline-block self-center`}
         />
       </button>
       {open && (
-        <div className="px-4 lg:px-8 text-left w-fit mx-auto lg:max-w-7/8 mt-4 pb-4 border-b-1 border-b-border-primary">
+        <div className="px-4 lg:px-8 text-left w-fit mx-auto lg:max-w-7/8 my-4 pb-4 border-b-1 border-b-border-primary">
           <ul>
             {Object.entries(affiliationsData).map(([id, af]) => (
-              <li>
+              <li key={af.name}>
                 <sup className="font-bold text-accent">
                   {affiliationAliases[id]}
                 </sup>{" "}

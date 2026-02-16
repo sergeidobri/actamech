@@ -4,6 +4,7 @@ import ArticleTable from "./ArticleTable";
 import { TArticleContent } from "@/lib/types/articles";
 import { Fragment } from "react/jsx-runtime";
 import ArticleSectionTitle from "./ArticleSectionTitle";
+import { MathJax } from "../mathjax/MathJax";
 
 const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
   const handleArticleContentRender = (
@@ -59,9 +60,10 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
         );
       case "text":
         return (
-          <p key={`${contentIndex}-text-${content.content}`}>
-            {content.content}
-          </p>
+          <MathJax
+            key={`${contentIndex}-text-${content.content}`}
+            html={content.content}
+          />
         );
       default:
         break;
