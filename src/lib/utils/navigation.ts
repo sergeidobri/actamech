@@ -41,3 +41,17 @@ export function getMetaConfig(path: string): MetaConfig {
 export function getDefaultImage(): string {
   return "/images/index/indexImage.jpg";
 }
+
+export const scrollToId = (id: string) => {
+  if (!window || !document) return;
+  const element = document.getElementById(id);
+  if (!element) return;
+  const headerOffset = 75;
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
+};

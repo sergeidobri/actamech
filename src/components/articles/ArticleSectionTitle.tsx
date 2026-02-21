@@ -9,11 +9,14 @@ export default function ArticleSectionTitle({
   children,
   variant = 0,
 }: ArticleSectionTitleProps) {
-  const variants = ["2xl", "xl", "lg", "base"];
+  const variants = ["xl", "lg", "base"];
 
   return (
-    <h1 className={`text-${variants[variant < 4 ? variant : 3]} my-4`} id={id}>
+    <h2
+      className={`text-${variants[variant < 3 ? variant : 2]} my-4 font-semibold`}
+      id={id}
+    >
       {children}
-    </h1>
+    </h2>
   );
 }

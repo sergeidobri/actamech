@@ -1,4 +1,9 @@
+"use client";
+
 import { IFigure, TArticleContent } from "@/lib/types/articles";
+import { scrollToId } from "@/lib/utils/navigation";
+import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 const ArticleNavFigures = ({ content }: { content: TArticleContent[] }) => {
@@ -23,22 +28,32 @@ const ArticleNavFigures = ({ content }: { content: TArticleContent[] }) => {
         {figures.map(
           (figure, i) =>
             (i < limit || expanded) && (
-              <img
-                // onClick={() => scrollToId(`figure-${figure.number}`)}
+              <Image
+                width={200}
+                height={200}
+                key={`${figure.title}-${figure.image}`}
+                className="cursor-pointer"
+                onClick={() => scrollToId(`figure-${figure.number}`)}
                 src={figure.image}
                 alt=""
               />
             ),
         )}
       </div>
-      {figures.length - 6 > 0 && (
+      {figures.length > limit && (
         <button
-          className="cursor-pointer mt-4 text-primary-text/40 font-semibold"
+          className="cursor-pointer mt-4 text-primary-text/40 font-semibold flex flex-row items-center"
           onClick={() => {
             setExpanded(!expanded);
           }}
         >
-          {expanded ? `Hide` : `Show ${figures.length - limit} more figures`}
+          {expanded
+            ? `Hide figures`
+            : `Show ${figures.length - limit} more figures`}
+          <ChevronDown
+            size={15}
+            className={`${expanded ? "rotate-180" : ""} transition-transform`}
+          />
         </button>
       )}
     </div>

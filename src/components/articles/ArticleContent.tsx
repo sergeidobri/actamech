@@ -4,7 +4,7 @@ import ArticleTable from "./ArticleTable";
 import { TArticleContent } from "@/lib/types/articles";
 import { Fragment } from "react/jsx-runtime";
 import ArticleSectionTitle from "./ArticleSectionTitle";
-import { MathJax } from "../mathjax/MathJax";
+import { MathJax } from "@/components/mathjax/MathJax";
 
 const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
   const handleArticleContentRender = (
@@ -27,9 +27,6 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
       case "section":
         return (
           <Fragment key={`${contentIndex}-section-${content.title}`}>
-            {/* <h2 id={content.number + content.title}>
-              
-            </h2> */}
             <ArticleSectionTitle
               id={content.number + content.title}
               variant={content.number?.split(".").length}
@@ -37,25 +34,6 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
               {content.number && `${content.number}. `} {content.title}
             </ArticleSectionTitle>
             <section>{generateContents(content.content)}</section>
-          </Fragment>
-        );
-      case "keywords":
-        return (
-          <Fragment key={`keywords`}>
-            <h2 id="keywords">Keywords</h2>
-            <section>
-              <p>{content.content.join("; ")}</p>
-            </section>
-          </Fragment>
-        );
-      case "abstract":
-        return (
-          <Fragment key="abstract">
-            {/* <h2 id="abstract">Abstract</h2> */}
-            <ArticleSectionTitle id="abstract">Abstract</ArticleSectionTitle>
-            <section>
-              <p>{content.content}</p>
-            </section>
           </Fragment>
         );
       case "text":
@@ -82,9 +60,30 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
   };
 
   return (
-    <div>
+    <div className="flex-1">
       <article className="article-content">
-        {/* {article.body &&
+        {article.abstract && (
+          <>
+            {/* <h2 id="abstract">Abstract</h2> */}
+            <ArticleSectionTitle id="abstract">Abstract</ArticleSectionTitle>
+            <section>{article.abstract}</section>
+          </>
+        )}
+        {article.keywords && (
+          <>
+            <ArticleSectionTitle id="keywords">Keywords</ArticleSectionTitle>
+            <section>
+              {article.keywords.map((keyword, i) => (
+                <span key={keyword}>
+                  {i !== 0 && ", "}
+                  {keyword}
+                </span>
+              ))}
+            </section>
+          </>
+        )}
+        {article.body && <div>{generateContents(article.body[0].content)}</div>}
+        {article.body &&
           article.body[0].content.map((section) => {
             switch (section.type) {
               case "acknowledgement":
@@ -108,8 +107,7 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
               default:
                 break;
             }
-          })} */}
-        {article.body && <div>{generateContents(article.body[0].content)}</div>}
+          })}
         {/* <section>
 					<h2 id="references">References</h2>
 					<div className="flex flex-row items-center gap-8 mt-8">
@@ -141,7 +139,6 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
 						</div>
 					</div>
 				</section> */}
-
         {/* <section>
 					<h2 id="references">Cited by (0)</h2>
 				</section> */}

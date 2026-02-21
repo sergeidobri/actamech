@@ -23,7 +23,7 @@ export default function AuthorSlidePanel({
       <div
         ref={ref}
         className={`fixed transition-transform duration-300 ease-in-out
-          transform ${opened ? "translate-x-0" : "translate-x-full"}
+          transform ${opened ? "translate-x-0" : "translate-x-full shadow-none"}
           top-(--header-height) right-0 z-20 h-full bg-primary py-8 px-8 min-w-[30vw] max-w-sm text-left shadow-xl/30`}
       >
         <div className="flex flex-row justify-between">

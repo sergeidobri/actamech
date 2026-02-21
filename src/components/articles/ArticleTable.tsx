@@ -1,4 +1,5 @@
 import { ITable } from "@/lib/types/articles";
+import { MathJax } from "@/components/mathjax/MathJax";
 
 const ArticleTable = ({ table }: { table: ITable }) => {
   return (
@@ -22,7 +23,7 @@ const ArticleTable = ({ table }: { table: ITable }) => {
                   px-1 py-2
                   `}
                     >
-                      {cell.data}
+                      <MathJax html={cell.data}></MathJax>
                     </td>
                   ))}
                 </tr>

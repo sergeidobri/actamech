@@ -2,7 +2,13 @@
 
 import { useEffect, useRef } from "react";
 
-export function MathJax({ html }: { html: string }) {
+export function MathJax({
+  html,
+  className = "",
+}: {
+  html: string;
+  className?: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -22,7 +28,7 @@ export function MathJax({ html }: { html: string }) {
     <div
       ref={containerRef}
       dangerouslySetInnerHTML={{ __html: html }}
-      className="mathjax-content"
+      className={`mathjax-content tex2jax_process ${className}`}
     />
   );
 }

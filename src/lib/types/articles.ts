@@ -15,10 +15,10 @@ export interface IArticle {
 export type TArticleContent =
   | IText
   | ISection
-  | IKeywords
-  | IAbstract
   | IFigure
-  | ITable;
+  | ITable
+  | IFundingSection
+  | IAcknowledgementSection;
 
 export interface IText {
   type: "text";

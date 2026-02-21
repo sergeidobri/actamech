@@ -1,7 +1,9 @@
 import { getArticleById, getProceedingById } from "@/api/api";
 import ArticleContent from "@/components/articles/ArticleContent";
+import ArticleNav from "@/components/articles/ArticleNav";
 import Authors from "@/components/authors/Authors";
 import MainContainer from "@/components/layout/MainContainer";
+import { MathJax } from "@/components/mathjax/MathJax";
 import Logo from "@/components/ui/Logo";
 import { resolveArticleType } from "@/lib/utils/articles";
 import Image from "next/image";
@@ -42,10 +44,8 @@ export default async function VolumeArticlePage({
                   year: "numeric",
                 },
               )}
-              ,{" "}
-              {articleData.pages_in_volume
-                ? `Pages: ${articleData.pages_in_volume}`
-                : articleData.id.toUpperCase()}
+              {articleData.pages_in_volume &&
+                `, Pages: ${articleData.pages_in_volume}`}
             </h2>
           </div>
           <Image
@@ -88,8 +88,8 @@ export default async function VolumeArticlePage({
         </div>
       </div>
 
-      <div className="relative">
-        {/* <ArticleNav article={articleData} /> */}
+      <div className="flex flex-col lg:flex-row gap-12">
+        <ArticleNav article={articleData} />
         <ArticleContent article={articleData} />
       </div>
     </MainContainer>

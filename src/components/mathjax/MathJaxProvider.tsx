@@ -9,6 +9,10 @@ export function MathJaxProvider({ children }: { children: React.ReactNode }) {
 
     (window as any).MathJax = {
       tex: {
+        loader: {
+          load: ["[tex]/color", "[tex]/require", "[tex]/ams"],
+        },
+        packages: ["base", "ams", "noerrors", "noundefined"],
         inlineMath: [
           ["$", "$"],
           ["\\(", "\\)"],
@@ -17,8 +21,13 @@ export function MathJaxProvider({ children }: { children: React.ReactNode }) {
           ["$$", "$$"],
           ["\\[", "\\]"],
         ],
+        tags: "ams",
+        enableLabels: true,
         processEscapes: true, // экранирование
         processEnvironments: true, // бегины энды в техе
+      },
+      chtml: {
+        scale: 1.0,
       },
       svg: {
         // из док.
