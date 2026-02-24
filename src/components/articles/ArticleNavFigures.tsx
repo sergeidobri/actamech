@@ -1,12 +1,19 @@
 "use client";
 
 import { IFigure, TArticleContent } from "@/lib/types/articles";
-import { scrollToId } from "@/lib/utils/navigation";
 import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
-const ArticleNavFigures = ({ content }: { content: TArticleContent[] }) => {
+interface ArticleNavFiguresProps {
+  content: TArticleContent[];
+  handleScroll: (id: string) => void;
+}
+
+export default function ArticleNavFigures({
+  content,
+  handleScroll,
+}: ArticleNavFiguresProps) {
   const [expanded, setExpanded] = useState(false);
   const limit = 6;
   const findAllFigures = (content: TArticleContent[]) => {
@@ -33,7 +40,7 @@ const ArticleNavFigures = ({ content }: { content: TArticleContent[] }) => {
                 height={200}
                 key={`${figure.title}-${figure.image}`}
                 className="cursor-pointer"
-                onClick={() => scrollToId(`figure-${figure.number}`)}
+                onClick={() => handleScroll(`figure-${figure.number}`)}
                 src={figure.image}
                 alt=""
               />
@@ -58,6 +65,4 @@ const ArticleNavFigures = ({ content }: { content: TArticleContent[] }) => {
       )}
     </div>
   );
-};
-
-export default ArticleNavFigures;
+}

@@ -8,8 +8,25 @@ import { useState } from "react";
 import ArticleNavFigures from "./ArticleNavFigures";
 import ArticleNavTables from "./ArticleNavTables";
 
-const ArticleNav = ({ article }: { article: SingleArticleResponse }) => {
+interface ArticleNavProps {
+  article: SingleArticleResponse;
+  contentExpanded: boolean;
+  setContentExpanded: (value: boolean) => void;
+}
+
+export default function ArticleNav({
+  article,
+  contentExpanded,
+  setContentExpanded,
+}: ArticleNavProps) {
   const [expanded, setExpanded] = useState(false);
+
+  const handleScroll = (id: string) => {
+    if (!contentExpanded) {
+      setContentExpanded(true);
+    }
+    setTimeout(() => scrollToId(id), 0);
+  };
 
   const handleArticleContentRender = (content: TArticleContent) => {
     switch (content.type) {
@@ -18,7 +35,7 @@ const ArticleNav = ({ article }: { article: SingleArticleResponse }) => {
           <li key={content.title}>
             <span
               className="cursor-pointer"
-              onClick={() => scrollToId(content.number + content.title)}
+              onClick={() => handleScroll(content.number + content.title)}
             >
               {content.number && `${content.number}. `}
               {content.title}
@@ -81,6 +98,24 @@ const ArticleNav = ({ article }: { article: SingleArticleResponse }) => {
             </li>
           </ul>
           {article.body && generateTableOfContents(article.body[0].content)}
+          {article.body &&
+            article.body[0].content.map((content) => {
+              switch (content.type) {
+                case "acknowledgement":
+                case "funding":
+                  return (
+                    <li key={content.type}>
+                      <span
+                        className="cursor-pointer"
+                        onClick={() => handleScroll(content.type)}
+                      >
+                        {content.type.charAt(0).toUpperCase() +
+                          content.type.slice(1)}
+                      </span>
+                    </li>
+                  );
+              }
+            })}
         </section>
         <button
           className="cursor-pointer mt-4 text-primary-text/40 font-semibold flex flex-row items-center"
@@ -97,13 +132,19 @@ const ArticleNav = ({ article }: { article: SingleArticleResponse }) => {
         <div className="w-full h-0 border-b-border-primary border-b-1 my-4" />
         {article.body && (
           <>
-            <ArticleNavFigures content={article.body[0].content} />
-            <ArticleNavTables content={article.body[0].content} />
+            <ArticleNavFigures
+              content={article.body[0].content}
+              handleScroll={handleScroll}
+            />
+            <ArticleNavTables
+              content={article.body[0].content}
+              handleScroll={handleScroll}
+            />
+            {/* <ArticleNavFigures content={[]} />
+            <ArticleNavTables content={[]} /> */}
           </>
         )}
       </div>
     </div>
   );
-};
-
-export default ArticleNav;
+}

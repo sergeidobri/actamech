@@ -1,7 +1,11 @@
 import { ITable } from "@/lib/types/articles";
 import { MathJax } from "@/components/mathjax/MathJax";
 
-const ArticleTable = ({ table }: { table: ITable }) => {
+interface ArticleTableProps {
+  table: ITable;
+}
+
+export default function ArticleTable({ table }: ArticleTableProps) {
   return (
     <div className="pt-6 pb-3">
       <div
@@ -37,6 +41,4 @@ const ArticleTable = ({ table }: { table: ITable }) => {
       </div>
     </div>
   );
-};
-
-export default ArticleTable;
+}

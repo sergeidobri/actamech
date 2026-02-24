@@ -1,10 +1,7 @@
 import { getArticleById, getProceedingById } from "@/api/api";
-import ArticleContent from "@/components/articles/ArticleContent";
-import ArticleNav from "@/components/articles/ArticleNav";
+import Article from "@/components/articles/Article";
 import Authors from "@/components/authors/Authors";
 import MainContainer from "@/components/layout/MainContainer";
-import { MathJax } from "@/components/mathjax/MathJax";
-import Logo from "@/components/ui/Logo";
 import { resolveArticleType } from "@/lib/utils/articles";
 import Image from "next/image";
 import { notFound } from "next/navigation";
@@ -30,7 +27,19 @@ export default async function VolumeArticlePage({
     <MainContainer>
       <div className="border-b-secondary border-b-2 pb-2">
         <div className="flex flex-row justify-center lg:justify-between items-center py-10 lg:py-0">
-          <Logo dark className="hidden lg:flex" />
+          <div className="py-4 flex-col items-center h-fit my-auto gap-2 hidden lg:flex">
+            <Image
+              priority
+              className={`w-auto h-32`}
+              src={"/icons/siteIconDark.png"}
+              alt="Site icon"
+              height={100}
+              width={100}
+            />
+            <span className="font-semibold font-[ZT-Neue-Ralewe-Regular] text-xl text-center">
+              ACTA MECHANICA <br /> ET IMPERIUM
+            </span>
+          </div>
           <div className="flex flex-col gap-4 text-center">
             <h1 className="text-2xl sm:text-3xl uppercase">
               {proceedingData.title}
@@ -88,10 +97,7 @@ export default async function VolumeArticlePage({
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-12">
-        <ArticleNav article={articleData} />
-        <ArticleContent article={articleData} />
-      </div>
+      <Article article={articleData} />
     </MainContainer>
   );
 }

@@ -1,6 +1,10 @@
 import { IFigure } from "@/lib/types/articles";
 
-const ArticleFigure = ({ figure }: { figure: IFigure }) => {
+interface ArticleFigureProps {
+  figure: IFigure;
+}
+
+export default function ArticleFigure({ figure }: ArticleFigureProps) {
   return (
     <div className="pt-6 pb-3">
       <div
@@ -14,6 +18,4 @@ const ArticleFigure = ({ figure }: { figure: IFigure }) => {
       </div>
     </div>
   );
-};
-
-export default ArticleFigure;
+}

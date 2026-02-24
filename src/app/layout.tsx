@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
-        {/* <ScrollToTop /> */}
+        <ScrollToTop />
         <Header />
         <PageFiller />
         <BaseInformation />

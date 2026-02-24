@@ -13,7 +13,7 @@ export function MathJax({
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mathjax = (window as any).MathJax;
+    const mathjax = window.MathJax;
 
     if (!mathjax || !containerRef.current) return;
 

@@ -2,12 +2,15 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 
 export function MathJaxProvider({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    if ((window as any).MathJax?.version) return;
+  const pathname = usePathname();
 
-    (window as any).MathJax = {
+  useEffect(() => {
+    if (window.MathJax) return;
+
+    window.MathJax = {
       tex: {
         loader: {
           load: ["[tex]/color", "[tex]/require", "[tex]/ams"],
@@ -47,11 +50,15 @@ export function MathJaxProvider({ children }: { children: React.ReactNode }) {
       },
       startup: {
         ready: () => {
-          (window as any).MathJax.startup.defaultReady();
+          if (window.MathJax) window.MathJax.startup.defaultReady?.();
         },
       },
     };
   }, []);
+
+  useEffect(() => {
+    if (window.MathJax) window.MathJax.texReset?.();
+  }, [pathname]);
 
   return (
     <>

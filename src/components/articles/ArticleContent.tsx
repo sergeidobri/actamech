@@ -6,7 +6,17 @@ import { Fragment } from "react/jsx-runtime";
 import ArticleSectionTitle from "./ArticleSectionTitle";
 import { MathJax } from "@/components/mathjax/MathJax";
 
-const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
+interface ArticleContentProps {
+  article: SingleArticleResponse;
+  expanded: boolean;
+  setExpanded: (value: boolean) => void;
+}
+
+export default function ArticleContent({
+  article,
+  expanded,
+  setExpanded,
+}: ArticleContentProps) {
   const handleArticleContentRender = (
     content: TArticleContent,
     contentIndex: number,
@@ -64,7 +74,6 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
       <article className="article-content">
         {article.abstract && (
           <>
-            {/* <h2 id="abstract">Abstract</h2> */}
             <ArticleSectionTitle id="abstract">Abstract</ArticleSectionTitle>
             <section>{article.abstract}</section>
           </>
@@ -82,27 +91,48 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
             </section>
           </>
         )}
-        {article.body && <div>{generateContents(article.body[0].content)}</div>}
+        {article.body && !expanded && (
+          <div className="text-center flex flex-col items-center gap-4 mx-auto py-6 border-y-2 my-4">
+            <div>
+              <h2 className="text-xl">Access the article</h2>
+              <p>Click button below to view the whole article</p>
+            </div>
+            <button
+              className="px-8 py-2 hover:bg-accent bg-secondary transition-colors w-fit text-primary cursor-pointer rounded-xs"
+              onClick={() => setExpanded(true)}
+            >
+              Show article
+            </button>
+          </div>
+        )}
+        {article.body && expanded && (
+          <div>{generateContents(article.body[0].content)}</div>
+        )}
         {article.body &&
+          expanded &&
           article.body[0].content.map((section) => {
             switch (section.type) {
               case "acknowledgement":
                 return (
-                  <>
-                    <h2 id="acknowledgement">Acknowledgement</h2>
+                  <Fragment key={section.content}>
+                    <ArticleSectionTitle id="acknowledgement">
+                      Acknowledgement
+                    </ArticleSectionTitle>
                     <section>
                       <p>{section.content}</p>
                     </section>
-                  </>
+                  </Fragment>
                 );
               case "funding":
                 return (
-                  <>
-                    <h2 id="funding">Funding</h2>
+                  <Fragment key={section.content}>
+                    <ArticleSectionTitle id="funding">
+                      Funding
+                    </ArticleSectionTitle>
                     <section>
                       <p>{section.content}</p>
                     </section>
-                  </>
+                  </Fragment>
                 );
               default:
                 break;
@@ -153,6 +183,4 @@ const ArticleContent = ({ article }: { article: SingleArticleResponse }) => {
       </article>
     </div>
   );
-};
-
-export default ArticleContent;
+}

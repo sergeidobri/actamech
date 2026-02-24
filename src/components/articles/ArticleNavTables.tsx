@@ -1,11 +1,18 @@
 "use client";
 
 import { ITable, TArticleContent } from "@/lib/types/articles";
-import { scrollToId } from "@/lib/utils/navigation";
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 
-const ArticleNavTables = ({ content }: { content: TArticleContent[] }) => {
+interface ArticleNavTablesProps {
+  content: TArticleContent[];
+  handleScroll: (id: string) => void;
+}
+
+export default function ArticleNavTables({
+  content,
+  handleScroll,
+}: ArticleNavTablesProps) {
   const [expanded, setExpanded] = useState(false);
   const findAllTables = (content: TArticleContent[]) => {
     let tables: ITable[] = [];
@@ -28,7 +35,7 @@ const ArticleNavTables = ({ content }: { content: TArticleContent[] }) => {
             (i < limit || expanded) && (
               <li key={table.title}>
                 <button
-                  onClick={() => scrollToId(`table-${table.number}`)}
+                  onClick={() => handleScroll(`table-${table.number}`)}
                   className="flex flex-row items-center font-semibold gap-1 cursor-pointer"
                 >
                   Table {i + 1}
@@ -55,6 +62,4 @@ const ArticleNavTables = ({ content }: { content: TArticleContent[] }) => {
       )}
     </div>
   );
-};
-
-export default ArticleNavTables;
+}
