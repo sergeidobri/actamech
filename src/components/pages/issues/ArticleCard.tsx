@@ -1,6 +1,10 @@
 "use client";
 
-import { IArticleAuthor, TArticleType } from "@/lib/types/articles";
+import {
+  AuthorInArticle,
+  IArticleAuthor,
+  TArticleType,
+} from "@/lib/types/articles";
 import { formatDate, resolveArticleType } from "@/lib/utils/articles";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
@@ -14,7 +18,10 @@ interface ArticleCardProps {
   editorial: boolean;
   published_at: string;
   link?: string;
-  authors: IArticleAuthor[];
+  authors: {
+    first_name: string;
+    last_name: string;
+  }[];
 }
 
 export default function ArticleCard({
@@ -43,7 +50,9 @@ export default function ArticleCard({
           {title}
         </Link>
         <h2 className="text-accent">
-          {authors.map(({ fullName }) => fullName).join(", ")}
+          {authors
+            .map(({ first_name, last_name }) => `${last_name} ${first_name}`)
+            .join(", ")}
         </h2>
       </div>
 

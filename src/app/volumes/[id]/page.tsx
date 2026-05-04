@@ -73,52 +73,9 @@ export default async function VolumePage({
             <div className="flex flex-col gap-12 mt-8">
               <ArticleCard
                 {...article}
-                abstract={
-                  article.content.find((content) => content.type == "abstract")
-                    ?.content
-                }
+                abstract={article.abstract}
                 type="conference_paper"
                 editorial={false}
-                published_at={new Date().toISOString()}
-              />
-              <ArticleCard
-                {...article}
-                abstract={
-                  article.content.find((content) => content.type == "abstract")
-                    ?.content
-                }
-                type="conference_paper"
-                editorial={true}
-                published_at={new Date().toISOString()}
-              />{" "}
-              <ArticleCard
-                {...article}
-                abstract={
-                  article.content.find((content) => content.type == "abstract")
-                    ?.content
-                }
-                type="conference_paper"
-                editorial={true}
-                published_at={new Date().toISOString()}
-              />{" "}
-              <ArticleCard
-                {...article}
-                abstract={
-                  article.content.find((content) => content.type == "abstract")
-                    ?.content
-                }
-                type="conference_paper"
-                editorial={true}
-                published_at={new Date().toISOString()}
-              />{" "}
-              <ArticleCard
-                {...article}
-                abstract={
-                  article.content.find((content) => content.type == "abstract")
-                    ?.content
-                }
-                type="conference_paper"
-                editorial={true}
                 published_at={new Date().toISOString()}
               />
             </div>

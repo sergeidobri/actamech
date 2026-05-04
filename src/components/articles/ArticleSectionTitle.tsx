@@ -7,15 +7,9 @@ interface ArticleSectionTitleProps {
 export default function ArticleSectionTitle({
   id,
   children,
-  variant = 0,
 }: ArticleSectionTitleProps) {
-  const variants = ["xl", "lg", "base"];
-
   return (
-    <h2
-      className={`text-${variants[variant < 3 ? variant : 2]} my-4 font-semibold`}
-      id={id}
-    >
+    <h2 className={`text-base my-4 font-semibold`} id={id}>
       {children}
     </h2>
   );

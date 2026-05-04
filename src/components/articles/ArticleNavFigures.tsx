@@ -28,14 +28,17 @@ export default function ArticleNavFigures({
   };
   let figures: IFigure[] = findAllFigures(content);
 
-  return (
+  return figures.length == 0 ? (
+    <></>
+  ) : (
     <div className="border-b-border-primary border-b-1 pb-4 mt-8">
       <h3 className="text-xl font-semibold">Figures ({figures.length})</h3>
       <div className="grid grid-cols-3 gap-4 mt-4">
         {figures.map(
           (figure, i) =>
             (i < limit || expanded) && (
-              <Image
+              // <Image
+              <img
                 width={200}
                 height={200}
                 key={`${figure.title}-${figure.image}`}

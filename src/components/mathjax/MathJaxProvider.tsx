@@ -1,5 +1,36 @@
 "use client";
 
+declare global {
+  interface Window {
+    MathJax?: {
+      tex: {
+        loader?: { load?: string[] };
+        packages?: string[];
+        inlineMath?: [string, string][];
+        displayMath?: [string, string][];
+        tags?: string;
+        enableLabels?: boolean;
+        processEscapes?: boolean;
+        processEnvironments?: boolean;
+      };
+      chtml?: { scale?: number };
+      svg?: { fontCache?: "global" | "none" | "local" };
+      options?: {
+        skipHtmlTags?: string[];
+        ignoreHtmlClass?: string;
+        processHtmlClass?: string;
+      };
+      startup: {
+        ready?: () => void;
+        defaultReady?: () => void;
+      };
+      texReset?: () => void;
+      typeset?: (element?: Element | null) => Promise<void>;
+    };
+  }
+}
+
+
 import { useEffect } from "react";
 import Script from "next/script";
 import { usePathname } from "next/navigation";

@@ -110,18 +110,12 @@ export default async function ProceedingVolumePage({
                 <div className="flex flex-col gap-8 mt-4">
                   {volumeData.articles.length ? (
                     volumeData.articles
-                      .filter((article) => article.doi)
+                      // .filter((article) => article.doi)
                       .map((article) => (
                         <ArticleCard
                           key={article.title}
-                          {...{
-                            ...article,
-                            authors: article.authors.map((author, i) => ({
-                              id: `author-${i}`,
-                              fullName: `${author.first_name} ${author.last_name}`,
-                            })),
-                            link: `${volumeData.volume_number}/${article.id}`,
-                          }}
+                          {...article}
+                          link={`${volumeData.volume_number}/${article.id}`}
                         />
                       ))
                   ) : (

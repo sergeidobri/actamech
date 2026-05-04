@@ -35,7 +35,7 @@ export default function ArticleTable({ table }: ArticleTableProps) {
             </tbody>
           </table>
         </div>
-        <span className="mt-8 block text-lg text-center">
+        <span className="mt-8 block text-sm text-center">
           Table {table.number}. {table.title}
         </span>
       </div>

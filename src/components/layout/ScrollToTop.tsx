@@ -6,9 +6,10 @@ import { useEffect } from "react";
 export default function ScrollToTop() {
   const pathname = usePathname();
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  // useEffect(() => {
+  //   if (pathname.match(/\/proceedings\/[\w-]+\/[\w-]+\/[\w-]+$/))
+  //     window.scrollTo(0, 0);
+  // }, [pathname]);
 
   return null;
 }

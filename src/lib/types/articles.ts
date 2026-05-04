@@ -1,16 +1,16 @@
 export type TArticleType = "research_paper" | "conference_paper";
 
-export interface IArticle {
-  id: string;
-  title: string;
-  topic?: string;
-  collectionInfo?: string;
-  authors: IArticleAuthor[];
-  highlights?: string[];
-  doi: string;
-  tables?: ITable[];
-  content: TArticleContent[];
-}
+// export interface IArticle {
+//   id: string;
+//   title: string;
+//   topic?: string;
+//   collectionInfo?: string;
+//   authors: IArticleAuthor[];
+//   highlights?: string[];
+//   doi: string;
+//   tables?: ITable[];
+//   content: TArticleContent[];
+// }
 
 export type TArticleContent =
   | IText
@@ -22,16 +22,83 @@ export type TArticleContent =
 
 export interface IText {
   type: "text";
-  content: string;
+  content: DocumentJSON;
 }
-export interface IKeywords {
-  type: "keywords";
-  content: string[];
+
+export interface DocumentJSON {
+  type: "doc";
+  content: DocumentItemJSON[];
 }
-export interface IAbstract {
-  type: "abstract";
-  content: string;
+
+export type DocumentItemJSON = TableJSON | ParagraphJSON | BlockMathJSON;
+
+export interface TableJSON {
+  type: "table";
+  content: TableRowJSON[];
 }
+
+export interface TableRowJSON {
+  type: "tableRow";
+  content: TableCellJSON[];
+}
+
+export interface TableCellJSON {
+  type: "tableCell";
+  // attrs: TableCellAttrs;
+  attrs?: any;
+  content: ParagraphJSON[];
+}
+
+export interface ParagraphJSON {
+  type: "paragraph";
+  content?: ParagraphItemJSON[];
+}
+
+export interface TextJSON {
+  type: "text";
+  text: string;
+  marks?: TextMarkJSON[];
+}
+
+export interface TextMarkJSON {
+  type: "bold" | "underline" | "italic";
+}
+
+export interface InlineMathJSON {
+  type: "inlineMath";
+  attrs: {
+    latex: string;
+  };
+}
+
+export interface BlockMathJSON {
+  type: "blockMath";
+  attrs: {
+    latex: string;
+  };
+}
+
+export interface FormulaRefJSON {
+  type: "formulaRef";
+  attrs: {
+    anchor: string;
+    text: string;
+  };
+}
+
+export interface ReferenceJSON {
+  type: "reference";
+  attrs: {
+    number: number;
+  };
+}
+
+export type ParagraphItemJSON =
+  | TextJSON
+  | InlineMathJSON
+  | BlockMathJSON
+  | FormulaRefJSON
+  | ReferenceJSON;
 
 export interface ISection {
   type: "section";

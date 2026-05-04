@@ -27,32 +27,34 @@ export default function BaseInformation() {
 
   return (
     <>
-      <div className="w-full h-80 relative">
-        <Image
-          className="w-full brightness-50 object-cover object-[25%_0%] bg-scroll"
-          src={bgImage}
-          fill
-          alt={"Main page image"}
-        />
+      {!pathname.match(/\/proceedings\/[\w-]+\/[\w-]+\/[\w-]+$/) && (
+        <div className="w-full h-80 relative">
+          <Image
+            className="w-full brightness-50 object-cover object-[25%_0%] bg-scroll"
+            src={bgImage}
+            fill
+            alt={"Main page image"}
+          />
 
-        <div
-          className="text-secondary-text absolute z-10
+          <div
+            className="text-secondary-text absolute z-10
               
               top-0 left-0 h-full w-full
               flex items-center justify-center"
-        >
-          <div className="backdrop-blur-xs w-full py-8 flex items-center justify-center flex-col text-center">
-            <h1 className="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]">
-              ACTA MECHANICA ET IMPERIUM
-            </h1>
-            <div className="text-center flex flex-col gap-4 mt-4">
-              <p className="px-8 py-2 italic text-xl">
-                Publishing model: Online
-              </p>
+          >
+            <div className="backdrop-blur-xs w-full py-8 flex items-center justify-center flex-col text-center">
+              <h1 className="text-3xl font-bold font-[ZT-Neue-Ralewe-Regular]">
+                ACTA MECHANICA ET IMPERIUM
+              </h1>
+              <div className="text-center flex flex-col gap-4 mt-4">
+                <p className="px-8 py-2 italic text-xl">
+                  Publishing model: Online
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
       {breadcrumbs && pathname !== "/" && segment !== "/_not-found" && (
         <div className="container mx-auto mt-8">
           <Breadcrumb navigation={breadcrumbs} />

@@ -73,14 +73,14 @@ export default function ArticleNav({
   return (
     <div className="left_navigation-sticky w-1/4 pt-4 -mt-4 hidden lg:block overflow-hidden!">
       <div className="grid grid-cols-1 gap-4">
-        <div className="rounded-t-base p-2 transition-colors bg-secondary/5 border-b-2 border-b-accent text-center hover:bg-accent cursor-pointer hover:text-secondary-text">
+        {/* <div className="rounded-t-base p-2 transition-colors bg-secondary/5 border-b-2 border-b-accent text-center hover:bg-accent cursor-pointer hover:text-secondary-text">
           Download PDF
-        </div>
+        </div> */}
         {/* <div className="rounded-t-base p-2 bg-secondary/5 border-b-2 border-b-accent text-center hover:bg-accent cursor-pointer hover:text-secondary-text">
           Download full issue
         </div> */}
       </div>
-      <div className="pb-4 mt-8 overflow-auto pr-2 -mt-2 max-h-[75vh]">
+      <div className="pb-4 overflow-auto pr-2 max-h-[75vh]">
         <h3 className="text-xl font-semibold">Outline</h3>
         <section className="mt-4">
           <ul>
@@ -97,9 +97,9 @@ export default function ArticleNav({
               Keywords
             </li>
           </ul>
-          {article.body && generateTableOfContents(article.body[0].content)}
+          {article.body && generateTableOfContents(article.body)}
           {article.body &&
-            article.body[0].content.map((content) => {
+            article.body.map((content) => {
               switch (content.type) {
                 case "acknowledgement":
                 case "funding":
@@ -133,15 +133,13 @@ export default function ArticleNav({
         {article.body && (
           <>
             <ArticleNavFigures
-              content={article.body[0].content}
+              content={article.body}
               handleScroll={handleScroll}
             />
             <ArticleNavTables
-              content={article.body[0].content}
+              content={article.body}
               handleScroll={handleScroll}
             />
-            {/* <ArticleNavFigures content={[]} />
-            <ArticleNavTables content={[]} /> */}
           </>
         )}
       </div>

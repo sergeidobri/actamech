@@ -85,11 +85,11 @@ export default async function VolumeArticlePage({
             )}
           </div>
         </div>
-        <div className="flex flex-row justify-between text-primary-text/60">
-          <span className="pb-1 border-b-accent border-b-1 font-semibold w-fit">
+        <div className="flex sm:flex-row gap-y-4 items-end flex-col justify-between text-primary-text/60">
+          <span className="pb-1 underline underline-offset-8 decoration-accent font-semibold w-fit">
             {resolveArticleType(articleData.type)}
           </span>
-          <span className="pb-1 border-b-accent border-b-1 font-semibold w-fit text-right hover:text-primary-text hover:pb-0 hover:border-b-2">
+          <span className="pb-1 underline underline-offset-8 decoration-accent font-semibold w-fit text-right hover:text-primary-text">
             <a target="_blank" href={`https://doi.org/${articleData.doi}`}>
               {articleData.doi}
             </a>

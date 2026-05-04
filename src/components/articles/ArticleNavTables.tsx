@@ -26,7 +26,10 @@ export default function ArticleNavTables({
   };
   const limit = 4;
   let tables: ITable[] = findAllTables(content);
-  return (
+
+  return tables.length == 0 ? (
+    <></>
+  ) : (
     <div className="border-b-border-primary border-b-1 pb-4">
       <h3 className="text-xl font-semibold mt-8">Tables ({tables.length})</h3>
       <ul className="flex flex-col gap-2 mt-4">
